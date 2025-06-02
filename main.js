@@ -5,8 +5,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const header = document.querySelector("header");
 
-  // mobile menu toggle
-
   // togglesvisibility
   function toggleMobileNav() {
     document.getElementById("mobileMenu").classList.toggle("show");
