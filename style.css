@@ -1,0 +1,1059 @@
+/* for vintage */
+@font-face {
+  font-family: "Veneer";
+  src: url("./Veneer.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #151e2f;
+  color: #fff;
+  
+}
+
+header {
+  position: sticky; /* sticks to top on scroll */
+  top: 0;
+  z-index: 999;
+  background-color: #151e2f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* bottom border animation (controlled via JS) */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: var(--border-width);
+  background-color: #bb915b;
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Veneer", serif;
+  font-weight: 100;
+  font-size: 2.5rem;
+  color: #EAB003;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav a {
+  font-weight: bold;
+  color:#EAB003;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color:#991b1b;
+}
+
+
+.nav-item {
+  position: relative;
+  cursor: pointer;
+  font-weight: bold;
+  color: #EAB003;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-item:hover {
+  color: #991b1b;
+}
+
+
+.icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.icon div {
+  width: 26px;
+  height: 3px;
+  background:#fff;
+}
+
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: #EAB003;
+  padding: 1rem 2rem;
+  border-top: 1px solid #bb915b;
+}
+
+.mobile-nav a {
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  color: #151e2f;
+  text-decoration: none;
+}
+
+.mobile-nav a:hover {
+  color: #bb915b;
+}
+
+main {
+  padding-left: 103px; /* space for fixed social sidebar */
+  position: relative;
+}
+
+.social-sidebar {
+  position: absolute;
+  width: 103px;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  margin: 0 auto;
+  padding: 2rem;
+  height: 100%;
+  background-color: #151e2f;
+}
+
+.social-sidebar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: var(--border-height);
+  width: 1px;
+  background-color: #bb915b;
+}
+
+.social-sidebar nav {
+  position: sticky;
+  top: 8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #EAB003;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #EAB003;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.social-sidebar a:hover {
+  background-color: #991b1b;
+  color:#151e2f;
+}
+
+.social-sidebar svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-left: 0;
+  }
+
+  .social-sidebar {
+    position: sticky;
+    top: unset;
+    padding: 1rem;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+  }
+
+  .social-sidebar nav {
+    position: relative;
+    top: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-sidebar::after {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+footer {
+  position: relative;
+  background: #bb915b;
+  color: #EAB003;
+  padding: 3rem 2rem;
+  min-height: 50vh;
+  background: url('./sssss.png');
+  background-size: cover;          
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: var(--border-width);
+  background-color: #EAB003; }
+
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rem;
+}
+
+.footer-logo {
+  font-family: "Veneer", serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #151e2f;
+  justify-content: flex-start;
+}
+
+.footer-links{ 
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color:#991b1b;
+  font-size: 0.95rem;
+  text-decoration:none;
+}
+
+.footer-links a:hover {
+  color: #151e2f;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .icon {
+    display: flex;
+  }
+
+  .mobile-nav.show {
+    display: flex;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: calc(50rem - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #151e2f;
+  background-size: cover;
+  padding: 2rem;
+  text-align:end;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-family: "Veneer", serif;
+  font-weight: 100;
+  font-size: clamp(8rem, 16vw, 12rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0.5rem 0;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px #EAB003;
+  opacity: 0;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #EAB003;
+  font-style: italic;
+  margin-top: 2rem;
+  font-weight: 300;
+}
+
+.hero-content .line {
+  display: block;
+}
+
+/* vann wrapper for scroll animation */
+.hero-vann-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 30rem;
+  width: 100%;
+  z-index: 4;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+
+.van-pos {
+  position: absolute;
+  left: -80%;  
+  top: 70%; 
+  transform: translateY(-50%); /* vertical centering */
+  opacity: 1;  
+  width: 490px;
+  height: auto;  
+  z-index: 3; /*visible but behind text */
+  opacity:0;
+}
+
+.van-pos.right-side {
+  left: auto;
+  right: -15%;
+}
+
+@media (max-width: 768px) {
+  .van-pos {
+    width: 120px;
+    left: -10%;
+  }
+  
+  .van-pos.right-side {
+    right: -10%;
+  }
+}
+
+.hero-vann {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  filter: drop-shadow(8px 8px 12px rgba(143, 143, 143, 0.15));
+  transition: filter 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(30rem - 80px);
+  }
+
+  .hero-vann-wrapper {
+    height: 25rem;
+  }
+
+  .hero-content h1 {
+    font-size: 15vw;
+  }
+}
+
+.section-intro {
+  background-color: #151e2f;
+  border-top: 1px solid #bb915b;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-grid {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  justify-content: space-between;
+}
+
+.intro-left,
+.intro-right {
+  max-width: 30%;
+}
+
+.small-title {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #991b1b;
+  margin-bottom: 1rem;
+}
+
+.main-heading {
+  font-family: "Veneer", serif;
+  font-weight: 100;
+  font-size: 4.5rem;
+  line-height: 1.2;
+  color: #EAB003;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.cta-box {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #EAB003;
+  background-color: #EAB003;
+  color: #151e2f;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-box:hover {
+  background-color: #991b1b;
+  color: #151e2f;
+}
+
+@media (max-width: 768px) {
+  .intro-grid {
+    text-align: center;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .intro-left,
+  .intro-right {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .intro-left {
+    padding-right: 0;
+  }
+
+  .main-heading {
+    font-size: 2.5rem;
+  }
+}
+
+.works-log {
+  background: transparent;
+  padding: 1rem 0;
+}
+
+.works-title {
+  font-family: "Veneer", serif;
+  font-size: 1.75rem;
+  color: #EAB003;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+.work-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.work-qty {
+  font-family: "Veneer", serif;
+  font-size: 2.5rem;
+  color: #991b1b;
+  min-width: 90px;
+  text-align: left;
+  line-height: 1;
+}
+
+.work-text {
+  max-width: 400px;
+}
+
+.work-text strong {
+  font-family: "Veneer", serif;
+  font-size: 1.2rem;
+  color: #EAB003;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.work-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .work-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .work-qty {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .work-text {
+    max-width: 100%;
+  }
+
+  .works-title {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+}
+
+.timeline-section {
+  padding: 6rem 0rem 3rem;
+  border-top: 1px solid #bb915b;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-entry {
+  margin: 0;
+  padding: 0 2rem 0;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  min-height: 600px;
+  max-width: 70%;
+}
+
+.timeline-entry:nth-child(odd) {
+  margin-left: auto;
+}
+
+.timeline-entry:nth-child(odd) .timeline-left {
+  order: 2;
+}
+
+.timeline-entry:nth-child(odd) .timeline-right {
+  order: 1;
+}
+
+.timeline-entry:nth-child(even) {
+  margin-right: auto;
+}
+
+.timeline-entry:last-child {
+  margin-bottom: 0rem;
+}
+
+.timeline-main-title {
+  padding: 0 2rem 0rem;
+  font-weight: 100;
+  font-family: "Veneer", serif;
+  font-size: 10rem;
+  line-height: 1.2;
+  color: #EAB003;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-left {
+  flex: 0 0 300px;
+  text-align: center;
+}
+
+.timeline-date {
+  font-family: "Veneer", serif;
+  font-size: 4rem;
+  color: #EAB003;
+  line-height: 1;
+  transform: translateY(30px); /* initial offset for animation */
+}
+
+.timeline-img {
+  width: 100%;
+  max-width: 240px;
+  border: 3px solid #991b1b;
+  padding: 0.5rem;
+  background-color: #151e2f;
+  box-shadow: 4px 4px 0 #EAB003;
+}
+
+.timeline-right {
+  flex: 1;
+  max-width: 400px;
+}
+
+.timeline-title {
+  font-family: "Veneer", serif;
+  font-size: 2rem;
+  color: #bb915b;
+  margin-bottom: 1rem;
+}
+
+.timeline-description {
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline-section {
+    padding: 3rem 0rem 3rem;
+  }
+
+  .timeline-main-title {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .timeline-entry {
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto 2rem;
+    gap: 1rem;
+    max-width: 100%;
+    min-height: unset;
+  }
+
+  .timeline-left {
+    margin-bottom: 2rem;
+  }
+
+  .timeline-title {
+    font-size: 1.5rem;
+  }
+
+  .timeline-date {
+    font-size: 3rem;
+  }
+
+  .timeline-entry:nth-child(odd) .timeline-right {
+    order: 2;
+  }
+}
+
+.social-links {
+  display:block;
+  gap: 60px;
+  margin-top: 10px;
+  position: fixed;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  color: #bb915b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #bb915b;
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+.quotes-section{
+  padding: 6em 2rem;
+  border-top: 1px solid #bb915b;
+  background-color: #151e2f;
+  position: relative;
+}
+
+.quotes-title{
+  font-family: "Veneer", serif;
+  font-weight: 100;
+  font-size: 8rem;
+  color: #EAB003;
+  text-align: center;
+  margin-bottom: 4rem;
+  text-transform:uppercase;
+  letter-spacing: 2px;
+
+}
+
+    .quotes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .quote-card {
+      width: 100%;
+      max-width: 900px;
+      border: 3px solid #991b1b;
+      padding: 0.5rem;
+      background-color: #151e2f;
+      box-shadow: 4px 4px 0 #EAB003;
+    }
+
+    .quote-text {
+      font-size: 1.4rem;
+      line-height: 1.7;
+      color: #fff;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .quotes-title {
+        font-size: 4rem;
+      }
+
+      .quote-card {
+        padding: 2rem;
+      }
+
+      .quote-card.featured-quote {
+        padding: 3rem 2rem;
+      }
+
+      .quote-text {
+        font-size: 1.2rem;
+      }
+
+      .quote-card.featured-quote .quote-text {
+        font-size: 1.4rem;
+      }
+
+      .quote-card::before {
+        font-size: 4rem;
+      }
+
+      .quote-card.featured-quote::before {
+        font-size: 6rem;
+      }
+    }
+
+
+.tv-gallery-section {
+    padding: 7rem 2rem ;
+    border-top: 1px solid #bb915b;
+    background-color: #151e2f;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom:20%;
+
+}
+
+.tv-gallery-title {
+    padding: 0 2rem;
+    font-weight: 100;
+    font-family: "Veneer", serif;
+    font-size: 8rem;
+    line-height: 1.2;
+    color: #EAB003;
+    margin-bottom: 2.5rem;
+}
+
+.tv-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.tv-screen {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 40px ;
+    padding: 40px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.8),
+        inset 0 5px 15px rgba(255, 255, 255, 0.2),
+        inset 0 -5px 15px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(234, 176, 3, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.painting-display {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: calc(100% - 80px);
+    height: 280px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.painting-display.active {
+    opacity: 1;
+}
+
+.static-overlay {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: calc(100% - 80px);
+    height: 280px;
+    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+    background-size: 100% 4px;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 3;
+    border-radius: 20px;
+}
+
+.tv-controls {
+    position: absolute;
+    right: 30px;
+    top: 340px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    z-index: 5;
+}
+
+.tv-knob {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #EAB003;
+    border: 2px solid #bb915b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tv-knob:hover {
+    background: #991b1b;
+    transform: scale(1.1);
+}
+
+.tv-knob:active {
+    background: #ccc;
+    transform: scale(0.9);
+}
+
+.painting-info {
+    flex: 1;
+    text-align: left;
+    min-width: 350px;
+    padding: 4rem;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 3px solid #991b1b;
+    background-color: #151e2f;
+    box-shadow: 4px 4px 0 #EAB003;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.painting-title {
+    font-family: "Veneer", serif;
+    font-size: 3rem;
+    color: #EAB003;
+    margin-bottom: 0.8rem;
+    font-weight: 100;
+    line-height: 1.2;
+}
+
+.painting-year {
+    font-size: 1rem;
+    color: #bb915b;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.painting-description {
+    font-size: 1.2rem;
+    color: #f8f9fa;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+
+
+@media (max-width: 1200px) {
+    .tv-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .painting-info {
+        min-width: auto;
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .tv-gallery-section {
+        padding: 4rem 1rem;
+    }
+    
+    .tv-gallery-title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .tv-screen {
+        width: 400px;
+        height: 320px;
+        padding: 30px;
+    }
+    
+    .painting-display {
+        top: 30px;
+        left: 30px;
+        width: calc(100% - 60px);
+        height: 210px;
+    }
+    
+    .static-overlay {
+        top: 30px;
+        left: 30px;
+        width: calc(100% - 60px);
+        height: 210px;
+    }
+    
+    .tv-controls {
+        top: 260px;
+        right: 25px;
+    }
+    
+    .channel-indicator {
+        top: 260px;
+        left: 25px;
+    }
+    
+    .tv-knob {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .painting-title {
+        font-size: 2rem;
+    }
+    
+    .painting-year {
+        font-size: 1.3rem;
+    }
+    
+    .painting-description {
+        font-size: 1rem;
+    }
+    
+    .painting-info {
+        padding: 2rem;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .tv-gallery-title {
+        font-size: 2rem;
+    }
+    
+    .tv-screen {
+        width: 320px;
+        height: 280px;
+        padding: 25px;
+    }
+    
+    .painting-display {
+        top: 25px;
+        left: 25px;
+        width: calc(100% - 50px);
+        height: 180px;
+    }
+    
+    .static-overlay {
+        top: 25px;
+        left: 25px;
+        width: calc(100% - 50px);
+        height: 180px;
+    }
+    
+    .tv-controls {
+        top: 220px;
+        right: 20px;
+        gap: 10px;
+    }
+    
+    .channel-indicator {
+        top: 220px;
+        left: 20px;
+        width: 50px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+    
+    .painting-title {
+        font-size: 1.5rem;
+    }
+    
+    .painting-info {
+        padding: 1.5rem;
+    }
+    
+    .tv-knob {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css"> 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vincent van Gogh | Golden Gallery</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="smooth-wrapper">
+
+  <header style="--border-width:0;">
+    <div class="header-inner">
+
+      <div class="logo">GoldenGallery</div>
+
+      <nav class="desktop-nav">
+        <a href="#">Home</a>
+        <a href="#">Tickets & Visit</a>
+        <a href="#">Art & Stories</a>
+        <a href="#">About</a>
+        <a href="#">Webstore</a>
+      </nav>
+
+      <!-- ICON FOR MOB -->
+      <div class="icon" onclick="toggleMobileNav()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#">Tickets & Visit</a>
+        <a href="#">Art & Stories</a>
+        <a href="#">About</a>
+        <a href="#">Webstore</a>
+    </div>
+  </header>
+
+  <!--  MAIN CONTENT  -->
+  <main id="smooth-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero vintage-hero">
+      <div class="hero-content">
+          <img src="./van.png" alt="van" class="van-pos">
+
+        <!-- MAIN HEADING -->
+        <h1>
+          <span class="line">Vincent</span>
+          <span class="line highlight">van Gogh</span>
+        </h1>
+        <p>"Great things are done by a series of small things brought together."</p>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="section-intro">
+          <div class="hero-vann-wrapper">
+      <img src="./vann.png" alt="Van Gogh Self Portrait"
+        class="hero-vann" />
+    </div>
+
+      <div class="intro-grid">
+        <!-- left side=> headings& description -->
+        <div class="intro-left">
+          <p class="small-title">Our Gallery</p>
+          <h2 class="main-heading">Van Gogh's Masterpieces</h2>
+          <p class="description">
+           Explore Vincent van Gogh's masterpieces in the museum's permanent exhibition. See his development as an artist in the museum galleries. Get to know his ideas and ambitions and step into Van Gogh's world.
+          </p>
+          <a href="#" class="cta-box">Explore All</a>
+        </div>
+
+        <!-- right side=> popular works -->
+        <div class="intro-right">
+          <div class="work-log">
+            <h3 class="work-title">Featured Works</h3>
+
+            <!-- each artwork -->
+            <div class="work-item">
+              <div class="work-qty">1889</div>
+              <div class="work-text">
+                <strong>The Starry Night</strong>
+                <p>Swirling night sky over a French village, painted from memory.</p>
+              </div>
+            </div>
+
+            <div class="work-item">
+              <div class="work-qty">1888</div>
+              <div class="work-text">
+                <strong>Sunflowers</strong>
+                <p>Vibrant yellow blooms capturing the essence of summer light.</p>
+              </div>
+            </div>
+
+            <div class="work-item">
+              <div class="work-qty">1889</div>
+              <div class="work-text">
+                <strong>Self-Portrait</strong>
+                <p>Intense blue background with characteristic brushwork style.</p>
+              </div>
+            </div>
+
+            <div class="work-item">
+              <div class="work-qty">1888</div>
+              <div class="work-text">
+                <strong>The Bedroom</strong>
+                <p>Simple furnishings rendered in bold, expressive colors.</p>
+              </div>
+            </div>
+
+            <div class="work-item">
+              <div class="work-qty">1889</div>
+              <div class="work-text">
+                <strong>Irises</strong>
+                <p>Purple flowers painted during his stay at Saint-Rémy asylum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-section">
+      <h2 class="timeline-main-title">Van Gogh's Journey</h2>
+
+      <!-- first timeline entry -->
+      <div class="timeline-entry">
+        <!-- left column=> date + image -->
+        <div class="timeline-left">
+          <div class="timeline-date">1888</div>
+          <img src="./Sunflowers.jpg" alt="Van Gogh in Arles"
+            class="timeline-img" />
+        </div>
+
+        <!-- right column=> story -->
+        <div class="timeline-right">
+          <h3 class="timeline-title">The Arles Period</h3>
+          <p class="timeline-description">
+            Van Gogh moved to Arles seeking better light and warmer weather. 
+            Here he created some of his most famous works, including <em>the Sunflowers series and The Bedroom</em>.
+          </p>
+        </div>
+      </div>
+
+      <!-- second timeline entry -->
+      <div class="timeline-entry">
+        <div class="timeline-left">
+          <div class="timeline-date">1889</div>
+          <img src="./starry.jpg" alt="Saint-Rémy Asylum"
+            class="timeline-img" />
+        </div>
+
+        <div class="timeline-right">
+          <h3 class="timeline-title">Saint-Rémy Asylum</h3>
+          <p class="timeline-description">
+            After his mental breakdown, Van Gogh voluntarily entered the <em>Saint-Rémy asylum</em>. 
+            Despite his struggles, this period produced masterpieces like The Starry Night and Irises.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+  <div class="timeline-left">
+    <div class="timeline-date">1885</div>
+    <img src="./potato-eaters.jpg" alt="The Potato Eaters" class="timeline-img" />
+  </div>
+  <div class="timeline-right">
+    <h3 class="timeline-title">Roots in the Netherlands</h3>
+    <p class="timeline-description">
+      Van Gogh began his artistic career in the Netherlands, focusing on rural themes and earthy tones. 
+      His first major work, <em>The Potato Eaters</em>, captured the harsh, honest life of peasants and marked his early interest in social realism.
+    </p>
+  </div>
+</div>
+ 
+
+      <div class="timeline-entry">
+  <div class="timeline-left">
+    <div class="timeline-date">1887</div>
+    <img src="./pere-tanguy.jpg" alt="Portrait of Père Tanguy" class="timeline-img" />
+  </div>
+  <div class="timeline-right">
+    <h3 class="timeline-title">The Paris Years</h3>
+    <p class="timeline-description">
+      In Paris, Van Gogh encountered Impressionism and Japanese prints, which revolutionized his use of color and light.
+      He painted vibrant portraits like <em>Portrait of Père Tanguy</em>, reflecting this dramatic artistic shift.
+    </p>
+  </div>
+</div>
+
+
+     <div class="timeline-entry">
+  <div class="timeline-left">
+    <div class="timeline-date">1890</div>
+    <img src="./almond-blossoms.jpg" alt="Almond Blossoms" class="timeline-img" />
+  </div>
+  <div class="timeline-right">
+    <h3 class="timeline-title">A Brief Peace in Auvers</h3>
+    <p class="timeline-description">
+      In his final months, Van Gogh lived in Auvers-sur-Oise under the care of Dr. Gachet. 
+      He painted <em>Almond Blossoms</em> as a gift for his newborn nephew — a symbol of hope — 
+      and soon after created <em>Wheatfield with Crows</em>, a turbulent and emotional landscape often seen as a reflection of his inner turmoil.
+    </p>
+  </div>
+</div>
+
+    </section>
+
+<section class="quotes-section">
+  <h2 class="quotes-title">Words of Wisdom</h2>
+
+  <div class="quotes-grid">
+    <div class="quote-card "> 
+    <div class="quote-text">
+     “I dream of painting then i paint my dream.”
+    </div>
+  </div>
+
+  <div class="quote-card">
+        <div class="quote-text">
+          “If you truly love nature, you will find beauty everywhere.”
+        </div>
+      </div>
+
+        <div class="quote-card">
+        <div class="quote-text">
+    “What would life be if we had no courage to attempt anything?”
+      </div>
+        </div>
+
+        <div class="quote-card">
+        <div class="quote-text">
+    “...and then, I have nature and art and poetry, and if that is not enough, what is enough?”        </div>
+      </div>
+
+       <div class="quote-card">
+        <div class="quote-text">
+    “Normality is a paved road: It’s comfortable to walk,﻿ but no flowers grow on it.” </div>
+</div>
+
+      <div class="quote-card">
+        <div class="quote-text">
+     “If I am worth anything later, I am worth something now. For wheat is wheat, even if people think it is a grass in the beginning.”        </div>
+      </div>
+       
+      <div class="quote-card">
+        <div class="quote-text">
+     “I am seeking, I am striving, I am in it with all my heart.” </div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-text">
+          “It is looking at things for a long time that ripens you and gives you a deeper meaning.”
+        </div>
+      </div>
+
+  </div>
+</section>
+
+
+        <section class="tv-gallery-section">
+        <h2 class="tv-gallery-title">Gallery TV</h2>
+        
+        <div class="tv-container">
+
+        <div class="tv-screen">
+          <img src="Wheat Field with Cypresses.jpg" 
+               alt="Wheat Field with Cypresses" class="painting-display active" data-title="Wheat Field with Cypresses" data-year="1889" data-description="Van Gogh’s golden wheat fields beneath a restless sky, framed by dark cypress trees and distant hills, blending direct observation with emotional intensity.">
+          
+          <img src="Irises classic.jpg" 
+               alt="Irises classic" class="painting-display" data-title="Sunflowers" data-year="1888" data-description="One of Van Gogh's most famous series, these vibrant yellow blooms capture the essence of summer light in Arles.">
+          
+          <img src="Self-Portrait.webp" 
+               alt="Self-Portrait" class="painting-display" data-title="Self-Portrait" data-year="1889" data-description="An intense self-examination painted with characteristic swirling brushstrokes and vibrant blue background.">
+          
+          <img src="Farmhouse in Provence.webp" 
+               alt="Farmhouse in Provence" class="painting-display" data-title="Almond Blossoms" data-year="1890" data-description="A symbol of hope and new life, painted as a gift for Van Gogh's newborn nephew during his final year.">
+          
+          <img src="Wheatfield with Crows.jpg"
+               alt="Wheatfield with Crows" class="painting-display" data-title="Wheatfield with Crows" data-year="1890" data-description="A dramatic landscape filled with emotional intensity, often considered one of Van Gogh's final masterpieces.">
+          
+         <img src="Café Terrace at Night.jpg" 
+               alt="Café Terrace at Night" class="painting-display" data-title="Café Terrace at Night" data-year="1888" data-description="An atmospheric depiction of a brightly lit café under a starry sky in Arles, France, capturing Van Gogh's fascination with night scenes and vibrant color contrasts.">
+
+          <div class="static-overlay"></div>
+        </div>
+        
+        <div class="tv-controls">
+          <div class="tv-knob" id="channelKnob"></div>
+          <div class="tv-knob" id="volumeKnob"></div>
+        </div>
+        
+      
+      <div class="painting-info" id="paintingInfo">
+        <h3 class="painting-title" id="paintingTitle">The Starry Night</h3>
+        <p class="painting-year" id="paintingYear">1889</p>
+        <p class="painting-description" id="paintingDescription">Van Gogh's swirling night sky over the village of Saint-Rémy, painted from memory and imagination during his stay at the asylum.</p>
+      </div>
+
+    </div>
+        </section>
+
+
+    <!-- social sidebar (fixed vertical navigation) -->
+<aside class="social-sidebar" >
+  <div class="social-links">
+    <a href="#" class="social-link"><i class="ri-instagram-line"></i></a>
+    <br>
+    <a href="#" class="social-link"><i class="ri-twitter-x-line"></i></a>
+  </div>
+</aside>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <!-- Logo -->
+      <div class="footer-logo">GoldenGallery</div>
+
+      <!-- NAV LINKS -->
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Terms</a>
+        <a href="#">hello@goldengallery.com</a>
+      </div>
+
+
+  </footer>
+
+  <!--  JAVASCRIPT  -->
+  <!-- GSAP Core Library -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="tv.js"></script>
+  <!-- GSAP ScrollTrigger Plugin -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
