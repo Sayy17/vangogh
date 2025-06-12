@@ -186,7 +186,7 @@ window.addEventListener("DOMContentLoaded", () => {
           pin: ".hero-vann-wrapper",
           animations: [
             { target: ".hero-vann", vars: { rotate: 10, scale: 0.7 } },
-            { target: ".hero-vann-wrapper", vars: { x: "30%" } },
+            { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
           ],
           headerOffset,
         });
