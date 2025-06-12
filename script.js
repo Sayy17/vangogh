@@ -5,13 +5,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const header = document.querySelector("header");
 
-  // togglesvisibility
-  function toggleMobileNav() {
-    document.getElementById("mobileMenu").classList.toggle("show");
-  }
-
-  // to expose function globally to use in inline HTML
-  window.toggleMobileNav = toggleMobileNav;
 
 
   // initial page load animations
@@ -110,7 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
         0
       )
 
-      //reveal the butterfly - FIXED: removed duplicate duration
+      //reveal the butterfly 
       .to(
         ".quote-img",
         {
@@ -240,15 +233,6 @@ window.addEventListener("DOMContentLoaded", () => {
           headerOffset,
         });
 
-      },
-
-      // mobile fallback animation (no scroll-based logic)
-      "(max-width: 768px)": function () {
-        gsap.to(".hero-vann-wrapper", {
-          opacity: 1,
-          duration: 1,
-          delay: 0.5,
-        });
       },
     });
   }
