@@ -1,4 +1,11 @@
-/* fix the media thing later plz :) */
+/*media part not yet done */
+:root {
+  --gold: #EAB003;
+  --dark-red: #991b1b;
+  --bronze: #bb915b;
+  --dark-bg: #151e2f;
+  --white: #fff;
+}
 
 * {
   padding: 0;
@@ -9,16 +16,15 @@
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background-color: #151e2f;
-  color: #fff;
-  
+  background-color: var(--dark-bg);
+  color: var(--white);
 }
 
 header {
   position: sticky; 
   top: 0;
   z-index: 999;
-  background-color: #151e2f;
+  background-color: var(--dark-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -30,7 +36,7 @@ header::after {
   left: 0;
   height: 1px;
   width: var(--border-width);
-  background-color: #bb915b;
+  background-color: var(--bronze);
 }
 
 .header-inner {
@@ -46,7 +52,7 @@ header::after {
   font-family: "Veneer", serif;
   font-weight: 100;
   font-size: 2.5rem;
-  color: #EAB003;
+  color: var(--gold);
   letter-spacing: 1px;
 }
 
@@ -57,14 +63,14 @@ nav {
 
 nav a {
   font-weight: bold;
-  color:#EAB003;
+  color: var(--gold);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color:#991b1b;
+  color: var(--dark-red);
 }
 
 main {
@@ -78,10 +84,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #151e2f;
+  background-color: var(--dark-bg);
   background-size: cover;
   padding: 2rem;
-  text-align:end;
+  text-align: end;
   overflow: hidden;
 }
 
@@ -99,13 +105,13 @@ main {
   margin: 0.5rem 0;
   line-height: 0.8;
   color: transparent;
-  -webkit-text-stroke: 1px #EAB003;
+  -webkit-text-stroke: 1px var(--gold);
   opacity: 0;
 }
 
 .hero-content p {
   font-size: 1.2rem;
-  color: #EAB003;
+  color: var(--gold);
   font-style: italic;
   margin-top: 2rem;
   font-weight: 300;
@@ -127,9 +133,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
 }
-
 
 .van-pos {
   position: absolute;
@@ -139,9 +143,8 @@ main {
   width: 490px;
   height: auto;  
   z-index: 3; /*visible but behind text */
-  opacity:0;
+  opacity: 0;
 }
-
 
 @media (max-width: 768px) {
   .van-pos {
@@ -163,8 +166,8 @@ main {
 }
 
 .section-intro {
-  background-color: #151e2f;
-  border-top: 1px solid #bb915b;
+  background-color: var(--dark-bg);
+  border-top: 1px solid var(--bronze);
   padding: 1rem 2rem;
   position: relative;
   z-index: 1;
@@ -188,7 +191,7 @@ main {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #991b1b;
+  color: var(--dark-red);
   margin-bottom: 1rem;
 }
 
@@ -197,13 +200,13 @@ main {
   font-weight: 100;
   font-size: 4.5rem;
   line-height: 1.2;
-  color: #EAB003;
+  color: var(--gold);
   margin-bottom: 1.5rem;
 }
 
 .description {
   font-size: 1.05rem;
-  color: #fff;
+  color: var(--white);
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -211,17 +214,17 @@ main {
 .cta-box {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #EAB003;
-  background-color: #EAB003;
-  color: #151e2f;
+  border: 2px solid var(--gold);
+  background-color: var(--gold);
+  color: var(--dark-bg);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .cta-box:hover {
-  background-color: #991b1b;
-  color: #151e2f;
+  background-color: var(--dark-red);
+  color: var(--dark-bg);
 }
 
 @media (max-width: 768px) {
@@ -254,12 +257,11 @@ main {
 .work-title {
   font-family: "Veneer", serif;
   font-size: 1.75rem;
-  color: #EAB003;
+  color: var(--gold);
   margin-bottom: 2.5rem;
   text-transform: uppercase;
   text-align: left;
   letter-spacing: 1px; 
-
 }
 
 .work-item {
@@ -271,7 +273,7 @@ main {
 .work-qty {
   font-family: "Veneer", serif;
   font-size: 2.5rem;
-  color: #991b1b;
+  color: var(--dark-red);
   min-width: 90px;
   text-align: left;
   line-height: 1;
@@ -284,7 +286,7 @@ main {
 .work-text strong {
   font-family: "Veneer", serif;
   font-size: 1.2rem;
-  color: #EAB003;
+  color: var(--gold);
   display: block;
   margin-bottom: 0.2rem;
 }
@@ -292,7 +294,7 @@ main {
 .work-text p {
   font-size: 1rem;
   line-height: 1.5;
-  color: #fff;
+  color: var(--white);
   margin: 0;
 }
 
@@ -314,513 +316,469 @@ main {
     max-width: 100%;
   }
 
-  .works-title {
+  .work-title {
     text-align: center;
     font-size: 2.5rem;
   }
 }
 
-  .journey-section {
-      padding: 6rem 0rem 3rem;
-      border-top: 1px solid #bb915b;
-      display: flex;
-      flex-direction: column;
-      background-color: #151e2f;
-    }
-
-    .journey-period {
-      margin: 0;
-      padding: 0 2rem 4rem;
-      display: flex;
-      gap: 3rem;
-      align-items: center;
-      min-height: 600px;
-      max-width: 70%;
-    }
-
-    .journey-period:nth-child(odd) {
-      margin-left: auto;
-    }
-
-    .journey-period:nth-child(odd) .period-visual {
-      order: 2;
-    }
-
-    .journey-period:nth-child(odd) .period-content {
-      order: 1;
-    }
-
-    .journey-period:nth-child(even) {
-      margin-right: auto;
-    }
-
-    .journey-period:last-child {
-      margin-bottom: 0rem;
-    }
-
-    .journey-main-title {
-      padding: 0 2rem 0rem;
-      font-weight: 100;
-      font-family: "Veneer", serif;
-      font-size: 10rem;
-      line-height: 1.2;
-      color: #EAB003;
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
-
-    .period-visual {
-      flex: 0 0 300px;
-      text-align: center;
-    }
-
-    .period-year {
-      font-family: "Veneer", serif;
-      font-size: 4rem;
-      color: #EAB003;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .period-image {
-      width: 100%;
-      max-width: 240px;
-      height: 300px;
-      object-fit: cover;
-      border: 3px solid #991b1b;
-      padding: 0.5rem;
-      background-color: #151e2f;
-      box-shadow: 4px 4px 0 #EAB003;
-    }
-
-    .period-content {
-      flex: 1;
-      max-width: 400px;
-    }
-
-    .period-title {
-      font-family: "Veneer", serif;
-      font-size: 2rem;
-      color: #bb915b;
-      margin-bottom: 1rem;
-    }
-
-    .period-description {
-      font-size: 1.05rem;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    .period-description em {
-      color: #EAB003;
-      font-style: italic;
-    }
-
-    @media (max-width: 768px) {
-      .journey-section {
-        padding: 3rem 0rem 3rem;
-      }
-
-      .journey-main-title {
-        font-size: 4rem;
-        text-align: center;
-      }
-
-      .journey-period {
-        flex-direction: column;
-        text-align: center;
-        margin: 0 auto 2rem;
-        gap: 1rem;
-        max-width: 100%;
-        min-height: unset;
-        padding: 0 1rem 3rem;
-      }
-
-      .period-visual {
-        margin-bottom: 2rem;
-      }
-
-      .period-title {
-        font-size: 1.5rem;
-      }
-
-      .period-year {
-        font-size: 3rem;
-      }
-
-      .journey-period:nth-child(odd) .period-content {
-        order: 2;
-      }
-
-      .journey-period:nth-child(odd) .period-visual {
-        order: 1;
-      }
-    }
-.social-links {
-  display:block;
-  gap: 60px;
-  margin-top: 10px;
-  position: fixed;
-}
-
-.social-link {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  color: #bb915b;
+.journey-section {
+  padding: 6rem 0rem 3rem;
+  border-top: 1px solid var(--bronze);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  background-color: var(--dark-bg);
+}
+
+.journey-period {
+  margin: 0;
+  padding: 0 2rem 4rem;
+  display: flex;
+  gap: 3rem;
   align-items: center;
-  font-size: 20px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  min-height: 600px;
+  max-width: 70%;
 }
 
-.social-link:hover {
-  background-color: #bb915b;
-  color: white;
-  transform: translateY(-3px);
+.journey-period:nth-child(odd) {
+  margin-left: auto;
 }
 
+.journey-period:nth-child(odd) .period-visual {
+  order: 2;
+}
 
-.quotes-section{
+.journey-period:nth-child(odd) .period-content {
+  order: 1;
+}
+
+.journey-period:nth-child(even) {
+  margin-right: auto;
+}
+
+.journey-period:last-child {
+  margin-bottom: 0rem;
+}
+
+.journey-main-title {
+  padding: 0 2rem 0rem;
+  font-weight: 100;
+  font-family: "Veneer", serif;
+  font-size: 10rem;
+  line-height: 1.2;
+  color: var(--gold);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.period-visual {
+  flex: 0 0 300px;
+  text-align: center;
+}
+
+.period-year {
+  font-family: "Veneer", serif;
+  font-size: 4rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.period-image {
+  width: 100%;
+  max-width: 240px;
+  height: 300px;
+  object-fit: cover;
+  border: 3px solid var(--dark-red);
+  padding: 0.5rem;
+  background-color: var(--dark-bg);
+  box-shadow: 4px 4px 0 var(--gold);
+}
+
+.period-content {
+  flex: 1;
+  max-width: 400px;
+}
+
+.period-title {
+  font-family: "Veneer", serif;
+  font-size: 2rem;
+  color: var(--bronze);
+  margin-bottom: 1rem;
+}
+
+.period-description {
+  font-size: 1.05rem;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.period-description em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .journey-section {
+    padding: 3rem 0rem 3rem;
+  }
+
+  .journey-main-title {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .journey-period {
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto 2rem;
+    gap: 1rem;
+    max-width: 100%;
+    min-height: unset;
+    padding: 0 1rem 3rem;
+  }
+
+  .period-visual {
+    margin-bottom: 2rem;
+  }
+
+  .period-title {
+    font-size: 1.5rem;
+  }
+
+  .period-year {
+    font-size: 3rem;
+  }
+
+  .journey-period:nth-child(odd) .period-content {
+    order: 2;
+  }
+
+  .journey-period:nth-child(odd) .period-visual {
+    order: 1;
+  }
+}
+
+.quotes-section {
   padding: 6em 2rem;
-  border-top: 1px solid #bb915b;
-  background-color: #151e2f;
+  border-top: 1px solid var(--bronze);
+  background-color: var(--dark-bg);
   position: relative;
 }
 
-.quotes-title{
+.quotes-title {
   font-family: "Veneer", serif;
   font-weight: 100;
   font-size: 8rem;
-  color: #EAB003;
+  color: var(--gold);
   text-align: center;
   margin-bottom: 4rem;
-  text-transform:uppercase;
+  text-transform: uppercase;
   letter-spacing: 2px;
-
 }
 
-    .quotes-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+.quotes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-    .quote-card {
-      width: 100%;
-      max-width: 900px;
-      border: 3px solid #991b1b;
-      padding: 0.5rem;
-      background-color: #151e2f;
-      box-shadow: 4px 4px 0 #EAB003;
-    }
+.quote-card {
+  width: 100%;
+  max-width: 900px;
+  border: 3px solid var(--dark-red);
+  padding: 0.5rem;
+  background-color: var(--dark-bg);
+  box-shadow: 4px 4px 0 var(--gold);
+}
 
-    .quote-text {
-      font-size: 1.4rem;
-      line-height: 1.7;
-      color: #fff;
-      font-style: italic;
-      position: relative;
-      z-index: 2;
-    }
-  
-/* for vintage */
+.quote-text {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: var(--white);
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+/* for vintage font */
 @font-face {
   font-family: "Veneer";
   src: url("./Veneer.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  }
+}
 
 .tv-gallery-section {
-    padding: 7rem 2rem ;
-    border-top: 1px solid #bb915b;
-    background-color: #151e2f;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom:20%;
-
+  padding: 7rem 2rem;
+  border-top: 1px solid var(--bronze);
+  background-color: var(--dark-bg);
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 20%;
 }
 
 .tv-gallery-title {
-    padding: 0 2rem;
-    font-weight: 100;
-    font-family: "Veneer", serif;
-    font-size: 8rem;
-    line-height: 1.2;
-    color: #EAB003;
-    margin-bottom: 2.5rem;
+  padding: 0 2rem;
+  font-weight: 100;
+  font-family: "Veneer", serif;
+  font-size: 8rem;
+  line-height: 1.2;
+  color: var(--gold);
+  margin-bottom: 2.5rem;
 }
 
 .tv-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
 }
 
 .tv-screen {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 40px ;
-    padding: 40px;
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.8),
-        inset 0 5px 15px rgba(255, 255, 255, 0.2),
-        inset 0 -5px 15px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(234, 176, 3, 0.1);
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 40px;
+  padding: 40px;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    inset 0 5px 15px rgba(255, 255, 255, 0.2),
+    inset 0 -5px 15px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(234, 176, 3, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .painting-display {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    width: calc(100% - 80px);
-    height: 280px;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    border-radius: 20px;
-    z-index: 2;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: calc(100% - 80px);
+  height: 280px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 20px;
+  z-index: 2;
 }
 
 .painting-display.active {
-    opacity: 1;
+  opacity: 1;
 }
 
 .static-overlay {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    width: calc(100% - 80px);
-    height: 280px;
-    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.05) 50%);
-    background-size: 100% 4px;
-    opacity: 0.2;
-    pointer-events: none;
-    z-index: 3;
-    border-radius: 20px;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: calc(100% - 80px);
+  height: 280px;
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+  background-size: 100% 4px;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 3;
+  border-radius: 20px;
 }
 
 .tv-controls {
-    position: absolute;
-    right: 30px;
-    top: 340px;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    z-index: 5;
+  position: absolute;
+  right: 30px;
+  top: 340px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  z-index: 5;
 }
 
 .tv-knob {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #EAB003;
-    border: 2px solid #bb915b;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--bronze);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .tv-knob:hover {
-    background: #991b1b;
-    transform: scale(1.1);
+  background: var(--dark-red);
+  transform: scale(1.1);
 }
 
 .tv-knob:active {
-    background: #ccc;
-    transform: scale(0.9);
+  background: #ccc;
+  transform: scale(0.9);
 }
 
 .painting-info {
-    flex: 1;
-    text-align: left;
-    min-width: 350px;
-    padding: 4rem;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    border: 3px solid #991b1b;
-    background-color: #151e2f;
-    box-shadow: 4px 4px 0 #EAB003;
-    position: relative;
-    overflow: hidden;
+  flex: 1;
+  text-align: left;
+  min-width: 350px;
+  padding: 4rem;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  border: 3px solid var(--dark-red);
+  background-color: var(--dark-bg);
+  box-shadow: 4px 4px 0 var(--gold);
+  position: relative;
+  overflow: hidden;
 }
 
 @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .painting-title {
-    font-family: "Veneer", serif;
-    font-size: 3rem;
-    color: #EAB003;
-    margin-bottom: 0.8rem;
-    font-weight: 100;
-    line-height: 1.2;
+  font-family: "Veneer", serif;
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  font-weight: 100;
+  line-height: 1.2;
 }
 
 .painting-year {
-    font-size: 1rem;
-    color: #bb915b;
-    margin-bottom: 2rem;
-    font-style: italic;
-    font-weight: 300;
+  font-size: 1rem;
+  color: var(--bronze);
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-weight: 300;
 }
 
 .painting-description {
-    font-size: 1.2rem;
-    color: #f8f9fa;
-    line-height: 1.8;
-    text-align: justify;
-    margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: #f8f9fa;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 2rem;
 }
 
-
 @media (max-width: 1200px) {
-    .tv-container {
-        flex-direction: column;
-        gap: 3rem;
-    }
-    
-    .painting-info {
-        min-width: auto;
-        width: 100%;
-        max-width: 600px;
-        text-align: center;
-    }
+  .tv-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .painting-info {
+    min-width: auto;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
-    .tv-gallery-section {
-        padding: 4rem 1rem;
-    }
-    
-    .tv-gallery-title {
-        font-size: 3rem;
-        margin-bottom: 3rem;
-    }
-    
-    .tv-screen {
-        width: 400px;
-        height: 320px;
-        padding: 30px;
-    }
-    
-    .painting-display {
-        top: 30px;
-        left: 30px;
-        width: calc(100% - 60px);
-        height: 210px;
-    }
-    
-    .static-overlay {
-        top: 30px;
-        left: 30px;
-        width: calc(100% - 60px);
-        height: 210px;
-    }
-    
-    .tv-controls {
-        top: 260px;
-        right: 25px;
-    }
-    
-    .channel-indicator {
-        top: 260px;
-        left: 25px;
-    }
-    
-    .tv-knob {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .painting-title {
-        font-size: 2rem;
-    }
-    
-    .painting-year {
-        font-size: 1.3rem;
-    }
-    
-    .painting-description {
-        font-size: 1rem;
-    }
-    
-    .painting-info {
-        padding: 2rem;
-    }
-    
+  .tv-gallery-section {
+    padding: 4rem 1rem;
+  }
+  
+  .tv-gallery-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .tv-screen {
+    width: 400px;
+    height: 320px;
+    padding: 30px;
+  }
+  
+  .painting-display {
+    top: 30px;
+    left: 30px;
+    width: calc(100% - 60px);
+    height: 210px;
+  }
+  
+  .static-overlay {
+    top: 30px;
+    left: 30px;
+    width: calc(100% - 60px);
+    height: 210px;
+  }
+  
+  .tv-controls {
+    top: 260px;
+    right: 25px;
+  }
+  
+  .tv-knob {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .painting-title {
+    font-size: 2rem;
+  }
+  
+  .painting-year {
+    font-size: 1.3rem;
+  }
+  
+  .painting-description {
+    font-size: 1rem;
+  }
+  
+  .painting-info {
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .tv-gallery-title {
-        font-size: 2rem;
-    }
-    
-    .tv-screen {
-        width: 320px;
-        height: 280px;
-        padding: 25px;
-    }
-    
-    .painting-display {
-        top: 25px;
-        left: 25px;
-        width: calc(100% - 50px);
-        height: 180px;
-    }
-    
-    .static-overlay {
-        top: 25px;
-        left: 25px;
-        width: calc(100% - 50px);
-        height: 180px;
-    }
-    
-    .tv-controls {
-        top: 220px;
-        right: 20px;
-        gap: 10px;
-    }
-    
-    .channel-indicator {
-        top: 220px;
-        left: 20px;
-        width: 50px;
-        height: 20px;
-        font-size: 0.7rem;
-    }
-    
-    .painting-title {
-        font-size: 1.5rem;
-    }
-    
-    .painting-info {
-        padding: 1.5rem;
-    }
-    
-    .tv-knob {
-        width: 30px;
-        height: 30px;
-    }
+  .tv-gallery-title {
+    font-size: 2rem;
+  }
+  
+  .tv-screen {
+    width: 320px;
+    height: 280px;
+    padding: 25px;
+  }
+  
+  .painting-display {
+    top: 25px;
+    left: 25px;
+    width: calc(100% - 50px);
+    height: 180px;
+  }
+  
+  .static-overlay {
+    top: 25px;
+    left: 25px;
+    width: calc(100% - 50px);
+    height: 180px;
+  }
+  
+  .tv-controls {
+    top: 220px;
+    right: 20px;
+    gap: 10px;
+  }
+  
+  .tv-knob {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .painting-title {
+    font-size: 1.5rem;
+  }
+  
+  .painting-info {
+    padding: 1.5rem;
+  }
 }
 
 .social-sidebar {
@@ -832,7 +790,7 @@ main {
   margin: 0 auto;
   padding: 2rem;
   height: 100%;
-  background-color: #151e2f;
+  background-color: var(--dark-bg);
 }
 
 .social-sidebar::after {
@@ -842,7 +800,7 @@ main {
   right: 0;
   height: var(--border-height);
   width: 1px;
-  background-color: #bb915b;
+  background-color: var(--bronze);
 }
 
 .social-sidebar nav {
@@ -858,16 +816,16 @@ main {
   justify-content: center;
   width: 38px;
   height: 38px;
-  border: 1px solid #EAB003;
+  border: 1px solid var(--gold);
   border-radius: 50%;
-  background-color: #fff;
-  color: #EAB003;
+  background-color: var(--white);
+  color: var(--gold);
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .social-sidebar a:hover {
-  background-color: #991b1b;
-  color:#151e2f;
+  background-color: var(--dark-red);
+  color: var(--dark-bg);
 }
 
 .social-sidebar svg {
@@ -877,8 +835,8 @@ main {
 
 footer {
   position: relative;
-  background: #bb915b;
-  color: #EAB003;
+  background: var(--bronze);
+  color: var(--gold);
   padding: 3rem 2rem;
   min-height: 50vh;
   background: url('./sssss.png');
@@ -894,8 +852,8 @@ footer::after {
   left: 0;
   height: 1px;
   width: var(--border-width);
-  background-color: #EAB003; }
-
+  background-color: var(--gold);
+}
 
 .footer-inner {
   max-width: 1280px;
@@ -910,22 +868,22 @@ footer::after {
   font-size: 1.5rem;
   font-weight: normal;
   letter-spacing: 1px;
-  color: #151e2f;
+  color: var(--dark-bg);
   justify-content: flex-start;
 }
 
-.footer-links{ 
+.footer-links { 
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
 .footer-links a {
-  color:#991b1b;
+  color: var(--dark-red);
   font-size: 0.95rem;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
-  color: #151e2f;
+  color: var(--dark-bg);
 }
