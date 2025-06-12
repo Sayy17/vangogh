@@ -815,8 +815,8 @@ main {
 }
 
 .social-link:hover {
-  background: var(--dark-red);
-  color: var(--white);
+  background: #fff;
+  color: #EAB003;
   transform: translateY(-5px);
 }
 
