@@ -80,21 +80,6 @@ nav a:hover {
   color: #991b1b;
 }
 
-
-.icon {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.icon div {
-  width: 26px;
-  height: 3px;
-  background:#fff;
-}
-
-
 main {
   padding-left: 103px; /* space for fixed social sidebar */
   position: relative;
