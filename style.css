@@ -1,10 +1,11 @@
-/*media part not yet done */
+/* media part isnt done yet*/
 :root {
   --gold: #EAB003;
   --dark-red: #991b1b;
   --bronze: #bb915b;
   --dark-bg: #151e2f;
   --white: #fff;
+  --text-light: rgba(255, 255, 255, 0.9);
 }
 
 * {
@@ -28,7 +29,6 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* bottom border animation (controlled via JS) */
 header::after {
   content: "";
   position: absolute;
@@ -74,7 +74,7 @@ nav {
 }
 
 main {
-  padding-left: 103px; /* space for fixed social sidebar */
+  padding-left: 103px; 
   position: relative;
 }
 
@@ -227,31 +227,14 @@ main {
   color: var(--dark-bg);
 }
 
-@media (max-width: 768px) {
-  .intro-grid {
-    text-align: center;
-    flex-direction: column;
-    gap: 5rem;
-  }
-
-  .intro-left,
-  .intro-right {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .intro-left {
-    padding-right: 0;
-  }
-
-  .main-heading {
-    font-size: 2.5rem;
-  }
-}
-
 .work-log {
-  background: transparent;
-  padding: 1rem 0;
+  background: rgba(21, 30, 47, 0.7);
+  padding: 2rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(187, 145, 91, 0.2);
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .work-title {
@@ -260,14 +243,31 @@ main {
   color: var(--gold);
   margin-bottom: 2.5rem;
   text-transform: uppercase;
-  text-align: left;
-  letter-spacing: 1px; 
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.work-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--dark-red);
 }
 
 .work-item {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(187, 145, 91, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+  transform: translateX(5px);
 }
 
 .work-qty {
@@ -275,12 +275,7 @@ main {
   font-size: 2.5rem;
   color: var(--dark-red);
   min-width: 90px;
-  text-align: left;
   line-height: 1;
-}
-
-.work-text {
-  max-width: 400px;
 }
 
 .work-text strong {
@@ -288,14 +283,13 @@ main {
   font-size: 1.2rem;
   color: var(--gold);
   display: block;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .work-text p {
   font-size: 1rem;
   line-height: 1.5;
-  color: var(--white);
-  margin: 0;
+  color: var(--text-light);
 }
 
 @media (max-width: 768px) {
@@ -460,7 +454,7 @@ main {
 }
 
 .quotes-section {
-  padding: 6em 2rem;
+  padding: 6rem 2rem;
   border-top: 1px solid var(--bronze);
   background-color: var(--dark-bg);
   position: relative;
@@ -469,47 +463,54 @@ main {
 .quotes-title {
   font-family: "Veneer", serif;
   font-weight: 100;
-  font-size: 8rem;
+  font-size: 6rem;
   color: var(--gold);
   text-align: center;
   margin-bottom: 4rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  opacity: 0;
 }
 
 .quotes-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .quote-card {
-  width: 100%;
-  max-width: 900px;
   border: 3px solid var(--dark-red);
-  padding: 0.5rem;
+  padding: 2rem;
   background-color: var(--dark-bg);
-  box-shadow: 4px 4px 0 var(--gold);
+  box-shadow: 8px 8px 0 var(--gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.quote-card:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 12px 12px 0 var(--gold);
 }
 
 .quote-text {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.7;
-  color: var(--white);
+  color: var(--text-light);
   font-style: italic;
   position: relative;
   z-index: 2;
 }
 
-/* for vintage font */
-@font-face {
-  font-family: "Veneer";
-  src: url("./Veneer.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+@media (max-width: 768px) {
+  .quotes-title {
+    font-size: 3rem;
+  }
+  
+  .quotes-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .tv-gallery-section {
@@ -776,49 +777,63 @@ main {
   }
 }
 
-.social-sidebar {
-  position: absolute;
-  width: 103px;
-  top: 0;
+.social {
+  position: fixed;
+  width: 80px;
+  top: 50%;
   left: 0;
+  transform: translateY(-50%);
   z-index: 900;
-  margin: 0 auto;
-  padding: 2rem;
-  height: 100%;
-  background-color: var(--dark-bg);
-  display: flex;
-  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(21, 30, 47, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 0 20px 20px 0;
+  border: 1px solid rgba(187, 145, 91, 0.3);
+  border-left: none;
 }
 
-.social-sidebar nav {
-  position: sticky;
-  top: 8rem;
+.social-links {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.social-sidebar a {
+.social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--gold);
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background-color: var(--white);
+  background: rgba(234, 176, 3, 0.1);
   color: var(--gold);
-  transition: background 0.3s ease, color 0.3s ease;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid var(--gold);
 }
 
-.social-sidebar a:hover {
-  background-color: var(--dark-red);
-  color: var(--dark-bg);
+.social-link:hover {
+  background: var(--dark-red);
+  color: var(--white);
+  transform: translateY(-5px);
 }
 
-.social-sidebar svg {
-  width: 18px;
-  height: 18px;
+.social-link i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .social {
+    display: none;
+  }
+  
+  main {
+    padding-left: 0;
+  }
 }
 
 footer {
@@ -860,4 +875,13 @@ footer {
 
 .footer-links a:hover {
   color: var(--dark-bg);
+}
+
+/* for vintage font */
+@font-face {
+  font-family: "Veneer";
+  src: url("./Veneer.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
