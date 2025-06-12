@@ -827,6 +827,7 @@ footer {
   color: var(--gold);
   padding: 3rem 2rem;
   min-height: 50vh;
+  background: url('./sssss.png');
 }
 
 .footer-inner {
