@@ -1,33 +1,23 @@
-document.documentElement.style.setProperty('--border-width', '100%'); //this for line (works with ::after)
+document.documentElement.style.setProperty('--border-width', '100%');  //this for line (works m3a ::after)
 window.addEventListener("DOMContentLoaded", () => {
-  // register ScrollTrigger plugin from GSAP
   gsap.registerPlugin(ScrollTrigger);
 
   const header = document.querySelector("header");
 
-
-
-  // initial page load animations
-  // remember to practise this again for god's sake
- 
-
   function runInitialAnimations() {
-    // create a timeline with default easing
     const onLoadTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
+      // remember to practise this again for god's sake
     onLoadTl
-      // animate header border width expansion
-
-     .to(
+      .to(
         ".van-pos",
-       {
-        opacity: 1,
-        duration: 1,
-        delay: 0.8,
-       },
-       0
+        {
+          opacity: 1,
+          duration: 1,
+          delay: 0.8,
+        },
+        0
       )
-
       .to(
         "header",
         {
@@ -36,7 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
         },
         0
       )
-      // slide in desktop nav links & sidebar icons from above
       .from(
         ".desktop-nav a, .social-sidebar a",
         {
@@ -48,7 +37,6 @@ window.addEventListener("DOMContentLoaded", () => {
         },
         0
       )
-      // animate sidebar border height
       .to(
         ".social-sidebar",
         {
@@ -57,7 +45,6 @@ window.addEventListener("DOMContentLoaded", () => {
         },
         0
       )
-      // fade in hero heading
       .to(
         ".hero-content h1",
         {
@@ -66,18 +53,16 @@ window.addEventListener("DOMContentLoaded", () => {
         },
         0
       )
-      // animate text stroke to solid color
       .to(
         ".hero-content h1",
         {
           delay: 0.5,
           duration: 2,
-          color: "var(--sienna)",
-          "-webkit-text-stroke": "0px var(--sienna)",
+          color: "#EAB003",
+          "-webkit-text-stroke": "0px #EAB003",
         },
         0
       )
-      // slide in each line of the heading from the right
       .from(
         ".hero-content .line",
         {
@@ -90,7 +75,6 @@ window.addEventListener("DOMContentLoaded", () => {
         },
         0
       )
-      // reveal the vann wrapper
       .to(
         ".hero-vann-wrapper",
         {
@@ -101,21 +85,8 @@ window.addEventListener("DOMContentLoaded", () => {
           ease: "power3.out",
         },
         0
-      )
-
-      //reveal the butterfly 
-      .to(
-        ".quote-img",
-        {
-          opacity: 1,
-          duration: 1.3,
-          delay: 1.5,
-          ease: "power3.out",
-        },
-        0
-      )
+      );
   }
-
 
   function pinAndAnimate({
     trigger,
@@ -125,10 +96,8 @@ window.addEventListener("DOMContentLoaded", () => {
     markers = false,
     headerOffset = 0,
   }) {
-    // define scroll end position with header offset
     const end = `top top+=${headerOffset}`;
 
-    // create a GSAP timeline connected to ScrollTrigger
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger,
@@ -138,24 +107,20 @@ window.addEventListener("DOMContentLoaded", () => {
         scrub: true,
         pin,
         pinSpacing: false,
-        markers: markers, // for debugging
-        invalidateOnRefresh: true, // ensures recalculation on resize
+        markers: markers,
+        invalidateOnRefresh: true,
       },
     });
 
-    // loop through each animation object
     animations.forEach(({ target, vars, position = 0 }) => {
       tl.to(target, vars, position);
     });
   }
 
-
   function setupScrollAnimations() {
     const headerOffset = header.offsetHeight - 1;
 
-    // use matchMedia to handle responsive behaviors
     ScrollTrigger.matchMedia({
-      // Desktop scroll animations
       "(min-width: 769px)": function () {
         // 1. vann animates on scroll from hero to intro
         pinAndAnimate({
@@ -171,75 +136,74 @@ window.addEventListener("DOMContentLoaded", () => {
         // 2. vann shifts right during the intro section
         pinAndAnimate({
           trigger: ".section-intro",
-          endTrigger: ".timeline-entry:nth-child(even)",
+          endTrigger: ".journey-period:nth-child(2)",
           pin: ".hero-vann-wrapper",
           animations: [
             { target: ".hero-vann", vars: { rotate: 10, scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "40%" } },
           ],
-          markers: false,
           headerOffset,
         });
 
-        // 3. vann shifts left during the first timeline entry
+        // 3. vann shifts left during journey periods
         pinAndAnimate({
-          trigger: ".timeline-entry:nth-child(even)",
-          endTrigger: ".timeline-entry:nth-child(odd)",
+          trigger: ".journey-period:nth-child(2)",
+          endTrigger: ".journey-period:nth-child(3)",
           pin: ".hero-vann-wrapper",
           animations: [
             { target: ".hero-vann", vars: { rotate: -10, scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
           ],
-          markers: false,
           headerOffset,
         });
 
-        // 4. timeline entry 3 to 4
+        // 4. journey period animations
         pinAndAnimate({
-          trigger: ".timeline-entry:nth-child(3)", 
-          endTrigger: ".timeline-entry:nth-child(4)",
+          trigger: ".journey-period:nth-child(3)",
+          endTrigger: ".journey-period:nth-child(4)",
           pin: ".hero-vann-wrapper",
           animations: [
             { target: ".hero-vann", vars: { rotate: 10, scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "30%" } },
           ],
-          markers: false,
           headerOffset,
         });
 
-        // 5. timeline entry 4 to 5
         pinAndAnimate({
-          trigger: ".timeline-entry:nth-child(4)",
-          endTrigger: ".timeline-entry:nth-child(5)",
+          trigger: ".journey-period:nth-child(4)",
+          endTrigger: ".journey-period:nth-child(5)",
           pin: ".hero-vann-wrapper",
           animations: [
             { target: ".hero-vann", vars: { rotate: -10, scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
           ],
-          markers: false,
           headerOffset,
         });
 
-        // 6. timeline entry 5 to 6 (FIXED)
         pinAndAnimate({
-          trigger: ".timeline-entry:nth-child(5)",
-          endTrigger: ".timeline-entry:nth-child(6)",
+          trigger: ".journey-period:nth-child(5)",
+          endTrigger: ".journey-period:nth-child(6)",
           pin: ".hero-vann-wrapper",
           animations: [
             { target: ".hero-vann", vars: { rotate: 10, scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "30%" } },
           ],
-          markers: false,
           headerOffset,
         });
+      },
 
+      "(max-width: 768px)": function () {
+        gsap.to(".hero-vann-wrapper", {
+          opacity: 1,
+          duration: 1,
+          delay: 0.5,
+        });
       },
     });
   }
 
-  // quote cards 
+  // quote cards animation
   gsap.utils.toArray('.quote-card').forEach((card, index) => {
-    // create timeline for each card
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: card,
@@ -249,10 +213,8 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // determine direction based on index (alternate directions)
     const direction = index % 2 === 0 ? -100 : 100;
     
-    // animation: slide in from one side, pause, then slide out to other side
     tl.fromTo(card, 
       {
         x: `${direction}vw`,
@@ -264,10 +226,10 @@ window.addEventListener("DOMContentLoaded", () => {
         duration: 2,
         ease: "power2.out"
       }
-    )
+    );
   });
 
-  // title animation
+  // quotes title animation
   gsap.fromTo('.quotes-title', 
     {
       y: -100,
@@ -287,6 +249,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
   runInitialAnimations(); 
   setupScrollAnimations(); 
-
   ScrollTrigger.refresh();
 });
