@@ -137,41 +137,6 @@ main {
   height: 18px;
 }
 
-@media (max-width: 768px) {
-  main {
-    padding-left: 0;
-  }
-
-  .social-sidebar {
-    position: sticky;
-    top: unset;
-    padding: 1rem;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-  }
-
-  .social-sidebar nav {
-    position: relative;
-    top: 0;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .social-sidebar::after {
-    width: 100%;
-    height: 1px;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    display: none;
-  }
-
-}
-
 .hero {
   position: relative;
   min-height: calc(50rem - 80px);
@@ -269,20 +234,6 @@ main {
   margin: 0 auto;
   filter: drop-shadow(8px 8px 12px rgba(143, 143, 143, 0.15));
   transition: filter 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    min-height: calc(30rem - 80px);
-  }
-
-  .hero-vann-wrapper {
-    height: 25rem;
-  }
-
-  .hero-content h1 {
-    font-size: 15vw;
-  }
 }
 
 .section-intro {
@@ -638,37 +589,7 @@ main {
       position: relative;
       z-index: 2;
     }
-
-    @media (max-width: 768px) {
-      .quotes-title {
-        font-size: 4rem;
-      }
-
-      .quote-card {
-        padding: 2rem;
-      }
-
-      .quote-card.featured-quote {
-        padding: 3rem 2rem;
-      }
-
-      .quote-text {
-        font-size: 1.2rem;
-      }
-
-      .quote-card.featured-quote .quote-text {
-        font-size: 1.4rem;
-      }
-
-      .quote-card::before {
-        font-size: 4rem;
-      }
-
-      .quote-card.featured-quote::before {
-        font-size: 6rem;
-      }
-    }
-
+  
 /* for vintage */
 @font-face {
   font-family: "Veneer";
