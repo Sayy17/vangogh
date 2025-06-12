@@ -1,12 +1,3 @@
-/* for vintage */
-@font-face {
-  font-family: "Veneer";
-  src: url("./Veneer.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -752,6 +743,14 @@ footer::after {
       }
     }
 
+/* for vintage */
+@font-face {
+  font-family: "Veneer";
+  src: url("./Veneer.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  }
 
 .tv-gallery-section {
     padding: 7rem 2rem ;
@@ -1037,3 +1036,4 @@ footer::after {
         height: 30px;
     }
 }
+
