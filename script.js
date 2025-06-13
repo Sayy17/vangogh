@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
         0
       )
       .from(
-        ".desktop-nav a, .social-sidebar a",
+        ".nav a, .social a",
         {
           y: -100,
           opacity: 0,
@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
         0
       )
       .to(
-        ".social-sidebar",
+        ".social",
         {
           "--border-height": "100%",
           duration: 10,
