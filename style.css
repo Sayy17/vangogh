@@ -1,4 +1,4 @@
-/* media part isnt fixed yet */
+/* media isnt fixed yet */
 :root {
   --gold: #EAB003;
   --dark-red: #991b1b;
@@ -135,7 +135,7 @@ header::after {
   margin: 0.5rem 0;
   line-height: 0.9;
   color: transparent;
- -webkit-text-stroke: 1px var(--gold); /* not working idk why */
+ -webkit-text-stroke: 1px var(--gold);
 }
 
 .hero-content p {
@@ -167,7 +167,7 @@ header::after {
 .hero-vann-wrapper {
   position: absolute;
   left: -30rem;
-  bottom: -250px;
+  bottom: -230px;
   transform: translateY(-50%);
   width: 100%;
   height: auto;
