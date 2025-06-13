@@ -138,6 +138,12 @@ header::after {
  -webkit-text-stroke: 1px var(--gold);
 }
 
+.hero-content .line {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+}
+
+
 .hero-content p {
   font-size: 1.5rem;
   color: var(--gold);
@@ -354,6 +360,7 @@ header::after {
 .journey-period:nth-child(even) {
   margin-right: auto;
 }
+
 
 
 .period-visual {
