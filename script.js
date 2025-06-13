@@ -114,10 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 function setupScrollAnimations() {
-    const headerOffset = header.offsetHeight - 1;
-
-    ScrollTrigger.matchMedia({
-        "(min-width: 769px)": function() {
+    const headerOffset = header.offsetHeight - 1
             const heroVanAnimation = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".journey-section",
