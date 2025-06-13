@@ -1,4 +1,4 @@
-document.documentElement.style.setProperty('--border-width', '100%'); //works m3a after
+document.documentElement.style.setProperty('--border-width', '0%');
 
 window.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -8,8 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
   function runInitialAnimations() {
     const onLoadTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-
-    //PRACTISE PRACTISE PRACTISE AGAIN
     onLoadTl
       .to(".van-pos", {
         opacity: 1,
@@ -23,12 +21,12 @@ window.addEventListener("DOMContentLoaded", () => {
       }, 0)
 
       .from(".nav a", {
-        y: -100,
+        y: -50,
         opacity: 0,
         duration: 0.8,
-        stagger: 0.2,
+        stagger: 0.1,
         ease: "power3.out",
-      }, 0)
+      }, 0.2)
 
       .fromTo(".social-link", 
         {
@@ -43,11 +41,6 @@ window.addEventListener("DOMContentLoaded", () => {
           ease: "power3.out",
         }, 0.5)
 
-      .to(".social", {
-        "--border-height": "100%",
-        duration: 10,
-      }, 0)
-
       .to(".hero-content h1", {
         opacity: 1,
         duration: 1,
@@ -56,8 +49,8 @@ window.addEventListener("DOMContentLoaded", () => {
       .to(".hero-content h1", {
         delay: 0.5,
         duration: 2,
-        color: "#EAB003",
-        "-webkit-text-stroke": "0px #EAB003",
+        color: "#D4AF37",
+        "-webkit-text-stroke": "0px #D4AF37",
       }, 0)
 
       .from(".hero-content .line", {
@@ -75,7 +68,21 @@ window.addEventListener("DOMContentLoaded", () => {
         delay: 1.5,
         duration: 1.3,
         ease: "power3.out",
-      }, 0);
+      }, 0)
+      
+      .from(".hero-quote", {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power2.out",
+      }, 1.5)
+      
+      .from(".hero-cta", {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power2.out",
+      }, 1.7);
   }
 
   function pinAndAnimate({
@@ -111,86 +118,71 @@ window.addEventListener("DOMContentLoaded", () => {
     const headerOffset = header.offsetHeight - 1;
 
     ScrollTrigger.matchMedia({
-      "(min-width: 769px)": function () {
-        // 1. vann animates on scroll from hero to intro
-        pinAndAnimate({
-          trigger: ".section-intro",
-          endTrigger: ".section-intro",
-          pin: ".hero-vann-wrapper",
-          animations: [
-            { target: ".hero-vann", vars: {  scale: 1 } },
-          ],
-          headerOffset,
+      "(min-width: 769px)": function() {
+        const heroVanAnimation = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-intro",
+            start: "top center",
+            end: "bottom bottom",
+            scrub: true,
+            markers: false
+          }
         });
 
-        // 2. vann shifts right during the intro section
-        pinAndAnimate({
-          trigger: ".section-intro",
-          endTrigger: ".journey-period:nth-child(2)",
-          pin: ".hero-vann-wrapper",
-          animations: [
-            { target: ".hero-vann", vars: { scale: 0.7 } },
-            { target: ".hero-vann-wrapper", vars: { x: "40%" } },
-          ],
-          headerOffset,
-        });
+        heroVanAnimation
+          .to(".hero-vann", {
+            y: 100,
+            scale: 0.8,
+            ease: "power1.inOut"
+          })
+          .to(".hero-vann", {
+            x: 100,
+            scale: 0.7,
+            ease: "power1.inOut"
+          }, 0)
+          .to(".hero-vann", {
+            x: -100,
+            scale: 0.7,
+            ease: "power1.inOut"
+          }, 0);
 
-        // 3. vann shifts left during journey periods
-        pinAndAnimate({
-          trigger: ".journey-period:nth-child(2)",
-          endTrigger: ".journey-period:nth-child(3)",
-          pin: ".hero-vann-wrapper",
-          animations: [
-            { target: ".hero-vann", vars: { scale: 0.7 } },
-            { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
-          ],
-          headerOffset,
+        // Journey sections animation
+        gsap.utils.toArray(".journey-period").forEach((period, index) => {
+          gsap.from(period, {
+            scrollTrigger: {
+              trigger: period,
+              start: "top 80%",
+              toggleActions: "play none none none"
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+          });
         });
-
-        // 4. journey period animations
-        pinAndAnimate({
-          trigger: ".journey-period:nth-child(3)",
-          endTrigger: ".journey-period:nth-child(4)",
-          pin: ".hero-vann-wrapper",
-          animations: [
-            { target: ".hero-vann", vars: { scale: 0.7 } },
-            { target: ".hero-vann-wrapper", vars: { x: "30%" } },
-          ],
-          headerOffset,
-        });
-
-        pinAndAnimate({
-          trigger: ".journey-period:nth-child(4)",
-          endTrigger: ".journey-period:nth-child(5)",
-          pin: ".hero-vann-wrapper",
-          animations: [
-            { target: ".hero-vann", vars: { scale: 0.7 } },
-            { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
-          ],
-          headerOffset,
-        });
-
-        pinAndAnimate({
-          trigger: ".journey-period:nth-child(5)",
-          endTrigger: ".journey-period:nth-child(6)",
-          pin: ".hero-vann-wrapper",
-          animations: [
-            { target: ".hero-vann", vars: {  scale: 0.7 } },
-            { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
-          ],
-          headerOffset,
-        });
-      },
-
-      "(max-width: 768px)": function () {
-        gsap.to(".hero-vann-wrapper", {
-          opacity: 1,
-          duration: 1,
-          delay: 0.5,
-        });
-      },
+      }
     });
   }
+
+  // animate section headers
+  gsap.utils.toArray('.section-header').forEach(section => {
+    gsap.fromTo(section, 
+      {
+        y: 50,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        }
+      }
+    );
+  });
 
   // quote cards animation
   gsap.utils.toArray('.quote-card').forEach((card, index) => {
