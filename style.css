@@ -355,10 +355,6 @@ header::after {
   margin-right: auto;
 }
 
-.journey-period:last-child {
-  margin-bottom: 0rem;
-}
-
 
 .period-visual {
   flex: 0 0 300px;
