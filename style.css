@@ -1,32 +1,53 @@
-/* media part isnt done yet*/
+/*media part isnt done*/
 :root {
   --gold: #EAB003;
   --dark-red: #991b1b;
   --bronze: #bb915b;
   --dark-bg: #151e2f;
+  --light-bg: #1e2d3a;
   --white: #fff;
   --text-light: rgba(255, 255, 255, 0.9);
+  --text-dark: #212529;
 }
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: 'Lora', serif;
   background-color: var(--dark-bg);
   color: var(--white);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, 
+.logo, .main-heading, 
+.journey-main-title, 
+.quotes-title, 
+.tv-gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 header {
-  position: sticky; 
+  position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1000;
   background-color: var(--dark-bg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 header::after {
@@ -37,224 +58,213 @@ header::after {
   height: 1px;
   width: var(--border-width);
   background-color: var(--bronze);
+  transition: width 0.5s ease;
 }
 
 .header-inner {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 1.2rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  font-family: "Veneer", serif;
-  font-weight: 100;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--gold);
   letter-spacing: 1px;
 }
 
-nav {
+.nav {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .nav a {
-  font-weight: bold;
-  color: var(--gold);
-  text-decoration: none;
-  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--white);
+  position: relative;
   transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  color: var(--dark-red);
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
 }
 
-main {
-  padding-left: 103px; 
-  position: relative;
+.nav a:hover {
+  color: var(--gold);
+}
+
+.nav a:hover::after {
+  width: 100%;
 }
 
 .hero {
   position: relative;
-  min-height: calc(50rem - 80px);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: var(--dark-bg);
-  background-size: cover;
   padding: 2rem;
-  text-align: end;
+  text-align: right;
   overflow: hidden;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .hero-content h1 {
-  font-family: "Veneer", serif;
-  font-weight: 100;
-  font-size: clamp(8rem, 16vw, 12rem);
+  font-weight: 400;
+  font-size: clamp(5rem, 12vw, 10rem);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0.5rem 0;
-  line-height: 0.8;
+  line-height: 0.9;
   color: transparent;
   -webkit-text-stroke: 1px var(--gold);
-  opacity: 0;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--gold);
   font-style: italic;
   margin-top: 2rem;
-  font-weight: 300;
-}
-
-.hero-content .line {
-  display: block;
-}
-
-/* vann wrapper for scroll animation */
-.hero-vann-wrapper {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 30rem;
-  width: 100%;
-  z-index: 4;
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .van-pos {
   position: absolute;
-  left: -80%;  
-  top: 70%; 
-  transform: translateY(-50%); /* vertical centering */
-  width: 490px;
-  height: auto;  
-  z-index: 3; /*visible but behind text */
+  left: -20%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: auto;
+  z-index: 3;
   opacity: 0;
-}
-
-@media (max-width: 768px) {
-  .van-pos {
-    width: 120px;
-    left: -10%;
-  }
-}
-
-.hero-vann {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: auto;
-  height: 100%;
-  margin: 0 auto;
-  filter: drop-shadow(8px 8px 12px rgba(143, 143, 143, 0.15));
-  transition: filter 0.3s ease;
+  filter: drop-shadow(0 0 20px rgba(234, 176, 3, 0.3));
 }
 
 .section-intro {
   background-color: var(--dark-bg);
   border-top: 1px solid var(--bronze);
-  padding: 1rem 2rem;
+  padding: 4rem 2rem;
   position: relative;
-  z-index: 1;
+}
+
+.hero-vann-wrapper {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+  z-index: 4;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-vann {
+  width: 300px; 
+  height: auto;
+  filter: drop-shadow(8px 8px 12px rgba(143, 143, 143, 0.15));
 }
 
 .intro-grid {
   display: flex;
-  align-items: center;
   gap: 4rem;
-  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.intro-left,
+.intro-left {
+  flex: 1;
+}
+
 .intro-right {
-  max-width: 30%;
+  flex: 1;
 }
 
 .small-title {
-  font-family: "Inter", sans-serif;
-  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--dark-red);
-  margin-bottom: 1rem;
-}
-
-.main-heading {
-  font-family: "Veneer", serif;
-  font-weight: 100;
-  font-size: 4.5rem;
-  line-height: 1.2;
   color: var(--gold);
   margin-bottom: 1.5rem;
 }
 
-.description {
-  font-size: 1.05rem;
-  color: var(--white);
-  line-height: 1.6;
+.main-heading {
+  font-size: 3.5rem;
+  color: var(--gold);
   margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
 }
 
 .cta-box {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 1.8rem;
   border: 2px solid var(--gold);
-  background-color: var(--gold);
-  color: var(--dark-bg);
-  text-decoration: none;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   transition: all 0.3s ease;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .cta-box:hover {
-  background-color: var(--dark-red);
+  background-color: var(--gold);
   color: var(--dark-bg);
 }
 
 .work-log {
-  background: rgba(21, 30, 47, 0.7);
-  padding: 2rem;
+  background: rgba(30, 45, 58, 0.7);
+  padding: 2.5rem;
   border-radius: 8px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(187, 145, 91, 0.2);
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 .work-title {
-  font-family: "Veneer", serif;
   font-size: 1.75rem;
   color: var(--gold);
   margin-bottom: 2.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   position: relative;
+  padding-bottom: 1rem;
 }
 
 .work-title::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: 0;
   left: 0;
-  width: 50px;
+  width: 60px;
   height: 2px;
-  background: var(--dark-red);
+  background: var(--gold);
 }
 
 .work-item {
@@ -267,20 +277,20 @@ main {
 }
 
 .work-item:hover {
-  transform: translateX(5px);
+  transform: translateX(10px);
 }
 
 .work-qty {
-  font-family: "Veneer", serif;
-  font-size: 2.5rem;
-  color: var(--dark-red);
-  min-width: 90px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  min-width: 70px;
   line-height: 1;
 }
 
 .work-text strong {
-  font-family: "Veneer", serif;
-  font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
   color: var(--gold);
   display: block;
   margin-bottom: 0.5rem;
@@ -288,40 +298,35 @@ main {
 
 .work-text p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text-light);
 }
 
-@media (max-width: 768px) {
-  .work-item {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .work-qty {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .work-text {
-    max-width: 100%;
-  }
-
-  .work-title {
-    text-align: center;
-    font-size: 2.5rem;
-  }
+.journey-section .section-header {
+  text-align: center;
+  border-top: 1px solid var(--bronze);
+  padding: 2rem 2rem 4rem;
+  opacity: 0;  
+  transform: translateY(20px); 
 }
 
-.journey-section {
-  padding: 6rem 0rem 3rem;
-  border-top: 1px solid var(--bronze);
-  display: flex;
-  flex-direction: column;
-  background-color: var(--dark-bg);
+.journey-section .section-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.journey-main-title {
+  font-weight: 100;
+  font-family: "Playfair Display", serif; 
+  font-size: 4rem;
+  line-height: 1.2;
+  color: var(--gold);
+  margin-bottom: 2.5rem;
 }
 
 .journey-period {
@@ -354,16 +359,6 @@ main {
   margin-bottom: 0rem;
 }
 
-.journey-main-title {
-  padding: 0 2rem 0rem;
-  font-weight: 100;
-  font-family: "Veneer", serif;
-  font-size: 10rem;
-  line-height: 1.2;
-  color: var(--gold);
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
 
 .period-visual {
   flex: 0 0 300px;
@@ -456,18 +451,13 @@ main {
 .quotes-section {
   padding: 6rem 2rem;
   border-top: 1px solid var(--bronze);
-  background-color: var(--dark-bg);
-  position: relative;
 }
 
 .quotes-title {
-  font-family: "Veneer", serif;
-  font-weight: 100;
-  font-size: 6rem;
-  color: var(--gold);
   text-align: center;
+  font-size: 4rem;
+  color: var(--gold);
   margin-bottom: 4rem;
-  opacity: 0;
 }
 
 .quotes-grid {
@@ -484,9 +474,6 @@ main {
   background-color: var(--dark-bg);
   box-shadow: 8px 8px 0 var(--gold);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
 }
 
 .quote-card:hover {
@@ -499,46 +486,27 @@ main {
   line-height: 1.7;
   color: var(--text-light);
   font-style: italic;
-  position: relative;
-  z-index: 2;
-}
-
-@media (max-width: 768px) {
-  .quotes-title {
-    font-size: 3rem;
-  }
-  
-  .quotes-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .tv-gallery-section {
-  padding: 7rem 2rem;
+  padding: 8rem 2rem;
   border-top: 1px solid var(--bronze);
-  background-color: var(--dark-bg);
   text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 20%;
 }
 
 .tv-gallery-title {
-  padding: 0 2rem;
-  font-weight: 100;
-  font-family: "Veneer", serif;
-  font-size: 8rem;
-  line-height: 1.2;
+  font-size: 4rem;
   color: var(--gold);
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 .tv-container {
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -552,13 +520,13 @@ main {
   height: 400px;
   border-radius: 40px;
   padding: 40px;
+  background: #000;
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.8),
     inset 0 5px 15px rgba(255, 255, 255, 0.2),
     inset 0 -5px 15px rgba(0, 0, 0, 0.3),
     0 0 30px rgba(234, 176, 3, 0.1);
-  position: relative;
-  overflow: hidden;
+  border: 10px solid #222;
 }
 
 .painting-display {
@@ -566,12 +534,10 @@ main {
   top: 40px;
   left: 40px;
   width: calc(100% - 80px);
-  height: 280px;
+  height: calc(100% - 80px);
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.5s ease;
   border-radius: 20px;
-  z-index: 2;
 }
 
 .painting-display.active {
@@ -583,28 +549,26 @@ main {
   top: 40px;
   left: 40px;
   width: calc(100% - 80px);
-  height: 280px;
+  height: calc(100% - 80px);
   background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.05) 50%);
   background-size: 100% 4px;
   opacity: 0.2;
   pointer-events: none;
-  z-index: 3;
   border-radius: 20px;
 }
 
 .tv-controls {
   position: absolute;
   right: 30px;
-  top: 340px;
+  bottom: 30px;
   display: flex;
-  flex-direction: row;
   gap: 15px;
   z-index: 5;
 }
 
 .tv-knob {
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: var(--gold);
   border: 2px solid var(--bronze);
@@ -617,164 +581,35 @@ main {
   transform: scale(1.1);
 }
 
-.tv-knob:active {
-  background: #ccc;
-  transform: scale(0.9);
-}
-
 .painting-info {
   flex: 1;
-  text-align: left;
-  min-width: 350px;
-  padding: 4rem;
+  min-width: 400px;
+  padding: 3rem;
   border-radius: 20px;
   backdrop-filter: blur(15px);
-  border: 3px solid var(--dark-red);
-  background-color: var(--dark-bg);
-  box-shadow: 4px 4px 0 var(--gold);
-  position: relative;
-  overflow: hidden;
+  border: 2px solid var(--dark-red);
+  background-color: var(--light-bg);
+  box-shadow: 8px 8px 0 var(--gold);
 }
 
 .painting-title {
-  font-family: "Veneer", serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--gold);
   margin-bottom: 0.8rem;
-  font-weight: 100;
   line-height: 1.2;
 }
 
 .painting-year {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--bronze);
   margin-bottom: 2rem;
   font-style: italic;
-  font-weight: 300;
 }
 
 .painting-description {
-  font-size: 1.2rem;
-  color: #f8f9fa;
+  font-size: 1.1rem;
+  color: var(--text-light);
   line-height: 1.8;
-  text-align: justify;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 1200px) {
-  .tv-container {
-    flex-direction: column;
-    gap: 3rem;
-  }
-  
-  .painting-info {
-    min-width: auto;
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .tv-gallery-section {
-    padding: 4rem 1rem;
-  }
-  
-  .tv-gallery-title {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-  }
-  
-  .tv-screen {
-    width: 400px;
-    height: 320px;
-    padding: 30px;
-  }
-  
-  .painting-display {
-    top: 30px;
-    left: 30px;
-    width: calc(100% - 60px);
-    height: 210px;
-  }
-  
-  .static-overlay {
-    top: 30px;
-    left: 30px;
-    width: calc(100% - 60px);
-    height: 210px;
-  }
-  
-  .tv-controls {
-    top: 260px;
-    right: 25px;
-  }
-  
-  .tv-knob {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .painting-title {
-    font-size: 2rem;
-  }
-  
-  .painting-year {
-    font-size: 1.3rem;
-  }
-  
-  .painting-description {
-    font-size: 1rem;
-  }
-  
-  .painting-info {
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .tv-gallery-title {
-    font-size: 2rem;
-  }
-  
-  .tv-screen {
-    width: 320px;
-    height: 280px;
-    padding: 25px;
-  }
-  
-  .painting-display {
-    top: 25px;
-    left: 25px;
-    width: calc(100% - 50px);
-    height: 180px;
-  }
-  
-  .static-overlay {
-    top: 25px;
-    left: 25px;
-    width: calc(100% - 50px);
-    height: 180px;
-  }
-  
-  .tv-controls {
-    top: 220px;
-    right: 20px;
-    gap: 10px;
-  }
-  
-  .tv-knob {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .painting-title {
-    font-size: 1.5rem;
-  }
-  
-  .painting-info {
-    padding: 1.5rem;
-  }
 }
 
 .social {
@@ -784,8 +619,8 @@ main {
   left: 0;
   transform: translateY(-50%);
   z-index: 900;
-  padding: 1rem;
-  background-color: rgba(21, 30, 47, 0.7);
+  padding: 1.5rem 1rem;
+  background-color: rgba(30, 45, 58, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 0 20px 20px 0;
   border: 1px solid rgba(187, 145, 91, 0.3);
@@ -810,78 +645,163 @@ main {
   color: var(--gold);
   font-size: 1.5rem;
   transition: all 0.3s ease;
-  text-decoration: none;
   border: 1px solid var(--gold);
 }
 
 .social-link:hover {
-  background: #fff;
-  color: #EAB003;
+  background: var(--gold);
+  color: var(--dark-bg);
   transform: translateY(-5px);
 }
 
-.social-link i {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+footer {
+  background: var(--light-bg);
+  padding: 6rem 2rem 3rem;
 }
 
-@media (max-width: 1024px) {
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6rem;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.footer-address {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col h4 {
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(187, 145, 91, 0.3);
+  text-align: center;
+  color: var(--text-light);
+}
+
+@media (max-width: 1200px) {
+  .intro-grid {
+    flex-direction: column;
+  }
+  
+  .tv-container {
+    flex-direction: column;
+  }
+  
+  .painting-info {
+    min-width: auto;
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .nav {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+  
+  .van-pos {
+    width: 300px;
+    left: -30%;
+  }
+  
+  .journey-period {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .journey-main-title,
+  .quotes-title,
+  .tv-gallery-title {
+    font-size: 3rem;
+  }
+  
+  .period-image {
+    max-width: 100%;
+    height: 300px;
+  }
+  
+  .tv-screen {
+    width: 100%;
+    height: 400px;
+  }
+  
   .social {
     display: none;
   }
   
-  main {
-    padding-left: 0;
+  .footer-inner {
+    gap: 3rem;
   }
 }
 
-footer {
-  position: relative;
-  background: var(--bronze);
-  color: var(--gold);
-  padding: 3rem 2rem;
-  min-height: 50vh;
-  background: url('./sssss.png');
-}
-
-.footer-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10rem;
-}
-
-.footer-logo {
-  font-family: "Veneer", serif;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  color: var(--dark-bg);
-  justify-content: flex-start;
-}
-
-.footer-links { 
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.footer-links a {
-  color: var(--dark-red);
-  font-size: 0.95rem;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  color: var(--dark-bg);
-}
-
-/* for vintage font */
-@font-face {
-  font-family: "Veneer";
-  src: url("./Veneer.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .main-heading {
+    font-size: 2.5rem;
+  }
+  
+  .journey-main-title,
+  .quotes-title,
+  .tv-gallery-title {
+    font-size: 2.5rem;
+  }
+  
+  .period-title {
+    font-size: 2rem;
+  }
+  
+  .tv-screen {
+    height: 300px;
+  }
 }
