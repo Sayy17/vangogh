@@ -306,7 +306,7 @@ header::after {
   text-align: center;
   border-top: 1px solid var(--bronze);
   padding: 2rem 2rem 4rem;
-  opacity: 0;  
+  opacity: 1;  
   transform: translateY(20px); 
 }
 
