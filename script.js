@@ -149,7 +149,7 @@ function setupScrollAnimations() {
                     scale: 0.9,
                     duration: 0.8,
                     ease: "power1.inOut"
-                }); //not working
+                });
 
             gsap.utils.toArray(".journey-period").forEach((period, index) => {
                 gsap.from(period, {
