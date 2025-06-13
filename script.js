@@ -118,7 +118,7 @@ window.addEventListener("DOMContentLoaded", () => {
           endTrigger: ".section-intro",
           pin: ".hero-vann-wrapper",
           animations: [
-            { target: ".hero-vann", vars: { rotate: 10, scale: 1 } },
+            { target: ".hero-vann", vars: {  scale: 1 } },
           ],
           headerOffset,
         });
@@ -129,7 +129,7 @@ window.addEventListener("DOMContentLoaded", () => {
           endTrigger: ".journey-period:nth-child(2)",
           pin: ".hero-vann-wrapper",
           animations: [
-            { target: ".hero-vann", vars: { rotate: 10, scale: 0.7 } },
+            { target: ".hero-vann", vars: { scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "40%" } },
           ],
           headerOffset,
@@ -141,7 +141,7 @@ window.addEventListener("DOMContentLoaded", () => {
           endTrigger: ".journey-period:nth-child(3)",
           pin: ".hero-vann-wrapper",
           animations: [
-            { target: ".hero-vann", vars: { rotate: -10, scale: 0.7 } },
+            { target: ".hero-vann", vars: { scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
           ],
           headerOffset,
@@ -153,7 +153,7 @@ window.addEventListener("DOMContentLoaded", () => {
           endTrigger: ".journey-period:nth-child(4)",
           pin: ".hero-vann-wrapper",
           animations: [
-            { target: ".hero-vann", vars: { rotate: 10, scale: 0.7 } },
+            { target: ".hero-vann", vars: { scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "30%" } },
           ],
           headerOffset,
@@ -164,7 +164,7 @@ window.addEventListener("DOMContentLoaded", () => {
           endTrigger: ".journey-period:nth-child(5)",
           pin: ".hero-vann-wrapper",
           animations: [
-            { target: ".hero-vann", vars: { rotate: -10, scale: 0.7 } },
+            { target: ".hero-vann", vars: { scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
           ],
           headerOffset,
@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", () => {
           endTrigger: ".journey-period:nth-child(6)",
           pin: ".hero-vann-wrapper",
           animations: [
-            { target: ".hero-vann", vars: { rotate: 10, scale: 0.7 } },
+            { target: ".hero-vann", vars: {  scale: 0.7 } },
             { target: ".hero-vann-wrapper", vars: { x: "-30%" } },
           ],
           headerOffset,
