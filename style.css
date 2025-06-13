@@ -135,7 +135,7 @@ header::after {
   margin: 0.5rem 0;
   line-height: 0.9;
   color: transparent;
-  -webkit-text-stroke: 1px var(--gold);
+  -webkit-text-stroke: 1px var(--gold); /*its not working*/
 }
 
 .hero-content p {
