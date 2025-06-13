@@ -1,4 +1,5 @@
-document.documentElement.style.setProperty('--border-width', '100%');  //this for line (works m3a ::after)
+document.documentElement.style.setProperty('--border-width', '100%'); //works m3a after
+
 window.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -7,85 +8,74 @@ window.addEventListener("DOMContentLoaded", () => {
   function runInitialAnimations() {
     const onLoadTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-      // remember to practise this again for god's sake
+
+    //PRACTISE PRACTISE PRACTISE AGAIN
     onLoadTl
-      .to(
-        ".van-pos",
+      .to(".van-pos", {
+        opacity: 1,
+        duration: 1,
+        delay: 0.8,
+      }, 0)
+
+      .to("header", {
+        "--border-width": "100%",
+        duration: 3,
+      }, 0)
+
+      .from(".nav a", {
+        y: -100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+      }, 0)
+
+      .fromTo(".social-link", 
         {
+          y: -50,
+          opacity: 0
+        },
+        {
+          y: 0,
           opacity: 1,
-          duration: 1,
-          delay: 0.8,
-        },
-        0
-      )
-      .to(
-        "header",
-        {
-          "--border-width": "100%",
-          duration: 3,
-        },
-        0
-      )
-      .from(
-        ".nav a, .social a",
-        {
-          y: -100,
-          opacity: 0,
           duration: 0.8,
           stagger: 0.2,
           ease: "power3.out",
-        },
-        0
-      )
-      .to(
-        ".social",
-        {
-          "--border-height": "100%",
-          duration: 10,
-        },
-        0
-      )
-      .to(
-        ".hero-content h1",
-        {
-          opacity: 1,
-          duration: 1,
-        },
-        0
-      )
-      .to(
-        ".hero-content h1",
-        {
-          delay: 0.5,
-          duration: 2,
-          color: "#EAB003",
-          "-webkit-text-stroke": "0px #EAB003",
-        },
-        0
-      )
-      .from(
-        ".hero-content .line",
-        {
-          x: 100,
-          delay: 1,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out",
-        },
-        0
-      )
-      .to(
-        ".hero-vann-wrapper",
-        {
-          opacity: 1,
-          scale: 0.8,
-          delay: 1.5,
-          duration: 1.3,
-          ease: "power3.out",
-        },
-        0
-      );
+        }, 0.5)
+
+      .to(".social", {
+        "--border-height": "100%",
+        duration: 10,
+      }, 0)
+
+      .to(".hero-content h1", {
+        opacity: 1,
+        duration: 1,
+      }, 0)
+
+      .to(".hero-content h1", {
+        delay: 0.5,
+        duration: 2,
+        color: "#EAB003",
+        "-webkit-text-stroke": "0px #EAB003",
+      }, 0)
+
+      .from(".hero-content .line", {
+        x: 100,
+        delay: 1,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+      }, 0)
+      
+      .to(".hero-vann-wrapper", {
+        opacity: 1,
+        scale: 0.8,
+        delay: 1.5,
+        duration: 1.3,
+        ease: "power3.out",
+      }, 0);
   }
 
   function pinAndAnimate({
