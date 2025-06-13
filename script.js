@@ -45,11 +45,11 @@ window.addEventListener("DOMContentLoaded", () => {
       duration: 1,
     }, 0)
 
-    .to(".hero-content h1", {
-      duration: 2,
+    .to(".hero-content .line", {
       color: "#D4AF37",
       "-webkit-text-stroke": "0px #D4AF37",
-    }, 0.5)
+    })
+
 
     .from(".hero-content .line", {
       x: 100,
