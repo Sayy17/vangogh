@@ -1,4 +1,4 @@
-/* media isnt fixed yet */
+/* some media isnt fixed */
 :root {
   --gold: #EAB003;
   --dark-red: #991b1b;
@@ -366,7 +366,7 @@ header::after {
 }
 
 .period-year {
-  font-family: "Veneer", serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 4rem;
   color: var(--gold);
   line-height: 1;
@@ -390,7 +390,7 @@ header::after {
 }
 
 .period-title {
-  font-family: "Veneer", serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   color: var(--bronze);
   margin-bottom: 1rem;
