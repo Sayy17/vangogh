@@ -7,9 +7,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
 
   // hero on-load animation
-  const onLoadTl = gsap.timeline({ defaults: { ease: "power2.out" } });
+  const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-  onLoadTl
+  tl
     .to(".van-pos", {
       opacity: 1,
       duration: 1,
