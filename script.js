@@ -7,9 +7,15 @@ window.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
 
   // hero on-load animation
-  const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+  const onLoadTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-  tl
+  onLoadTl
+    .to(".van-pos", {
+      opacity: 1,
+      duration: 1,
+      delay: 0.8,
+    }, 0)
+
     .to("header", {
       "--border-width": "100%",
       duration: 3,
@@ -59,11 +65,25 @@ window.addEventListener("DOMContentLoaded", () => {
       scale: 0.8,
       duration: 1.3,
       ease: "power3.out",
-    }, 1.5);
+    }, 1.5)
+
+    .from(".hero-quote", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: "power2.out",
+    }, 1.5)
+
+    .from(".hero-cta", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: "power2.out",
+    }, 1.7);
 
   const headerOffset = header.offsetHeight - 1;
 
-  // hero-van scroll animation
+  // journey scroll (needs adjustments)
   const heroVanAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".journey-section",
@@ -75,21 +95,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
   heroVanAnimation
     .to(".hero-vann", {
-      y: 300,
-      x: 500,
+      y: 900,
+      x: 1100,
       scale: 0.85,
       duration: 0.6,
       ease: "power1.inOut"
     })
     .to(".hero-vann", {
-      y: 600,
-      x: -800,
+      y: 3000,
+      x: -2300,
       scale: 0.7,
       duration: 0.6,
       ease: "power1.inOut"
     })
     .to(".hero-vann", {
-      y: 0,
+      y: -100,
       x: 0,
       scale: 0.9,
       duration: 0.8,
