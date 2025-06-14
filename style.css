@@ -7,7 +7,6 @@
   --light-bg: #1e2d3a;
   --white: #fff;
   --text-light: rgba(255, 255, 255, 0.9);
-  --text-dark: #212529;
 }
 
 * {
@@ -134,11 +133,10 @@ header::after {
   letter-spacing: 2px;
   margin: 0.5rem 0;
   line-height: 0.9;
-  color: transparent;
- -webkit-text-stroke: 1px var(--gold);
 }
 
 .hero-content .line {
+  display: block;
   color: transparent;
   -webkit-text-stroke: 1px var(--gold);
 }
