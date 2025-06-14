@@ -84,37 +84,44 @@ window.addEventListener("DOMContentLoaded", () => {
   const headerOffset = header.offsetHeight - 1;
 
   // journey scroll (needs adjustments)
-  const heroVanAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".journey-section",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 1,
-    }
-  });
+const heroVan = document.querySelector(".hero-vann-wrapper");
 
-  heroVanAnimation
-    .to(".hero-vann", {
-      y: 900,
-      x: 1100,
-      scale: 0.85,
-      duration: 0.6,
-      ease: "power1.inOut"
-    })
-    .to(".hero-vann", {
-      y: 3000,
-      x: -2300,
-      scale: 0.7,
-      duration: 0.6,
-      ease: "power1.inOut"
-    })
-    .to(".hero-vann", {
-      y: -100,
-      x: 0,
-      scale: 0.9,
-      duration: 0.8,
-      ease: "power1.inOut"
-    });
+const vanTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".journey-section",
+    start: "top center",
+    end: "bottom center",
+    scrub: 1
+  }
+});
+
+// left
+vanTimeline.to(heroVan, {
+  y: 700,
+  x:900, 
+  duration: 1 
+});
+
+// right
+vanTimeline.to(heroVan, {
+  x: -60, 
+  y:1300, 
+  duration: 1 
+});
+
+// left
+vanTimeline.to(heroVan, {
+  x:1000, 
+  y:1950,
+  duration: 1
+});
+
+// right
+vanTimeline.to(heroVan, {
+  x: -100,
+  y: 2510,
+  duration: 1 
+});
 
   // journey period cards scroll
   gsap.utils.toArray(".journey-period").forEach((period) => {
@@ -232,6 +239,6 @@ window.addEventListener("DOMContentLoaded", () => {
     duration: 1.2,
     ease: "power2.out"
   });
-
+  
   ScrollTrigger.refresh();
 });
