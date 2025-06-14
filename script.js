@@ -203,7 +203,7 @@ window.addEventListener("DOMContentLoaded", () => {
       start: "top 80%",
       toggleActions: "play none none none"
     },
-    y: 50,
+    y: 100,
     opacity: 0,
     duration: 1,
     ease: "power2.out"
