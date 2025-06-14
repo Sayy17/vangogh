@@ -132,7 +132,6 @@ header::after {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0.5rem 0;
-  line-height: 0.9;
 }
 
 .hero-content .line {
@@ -205,7 +204,6 @@ header::after {
   font-size: 3.5rem;
   color: var(--gold);
   margin-bottom: 2rem;
-  line-height: 1.2;
 }
 
 .description {
@@ -276,7 +274,6 @@ header::after {
   font-size: 2rem;
   color: var(--gold);
   min-width: 70px;
-  line-height: 1;
 }
 
 .work-text strong {
@@ -289,7 +286,6 @@ header::after {
 
 .work-text p {
   font-size: 1rem;
-  line-height: 1.6;
   color: var(--text-light);
 }
 
@@ -387,7 +383,6 @@ header::after {
 .period-description {
   font-size: 1.05rem;
   color: var(--white);
-  line-height: 1.6;
 }
 
 .period-description em {
@@ -597,7 +592,6 @@ header::after {
 .painting-description {
   font-size: 1.1rem;
   color: var(--text-light);
-  line-height: 1.8;
 }
 
 .social {
