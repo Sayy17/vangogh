@@ -149,18 +149,6 @@ header::after {
   margin-top: 2rem;
 }
 
-.van-pos {
-  position: absolute;
-  left: -20%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 600px;
-  height: auto;
-  z-index: 3;
-  opacity: 0;
-  filter: drop-shadow(0 0 20px rgba(234, 176, 3, 0.3));
-}
-
 .section-intro {
   background-color: var(--dark-bg);
   border-top: 1px solid var(--bronze);
