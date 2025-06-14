@@ -1,10 +1,12 @@
 window.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
+  // header underline initial state
   document.documentElement.style.setProperty('--border-width', '0%');
 
   const header = document.querySelector("header");
 
+  // hero on-load animation
   const onLoadTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
   onLoadTl
@@ -50,7 +52,6 @@ window.addEventListener("DOMContentLoaded", () => {
       "-webkit-text-stroke": "0px #D4AF37",
     })
 
-
     .from(".hero-content .line", {
       x: 100,
       opacity: 0,
@@ -82,6 +83,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const headerOffset = header.offsetHeight - 1;
 
+  // journey scroll (needs adjustments)
   const heroVanAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".journey-section",
@@ -114,6 +116,7 @@ window.addEventListener("DOMContentLoaded", () => {
       ease: "power1.inOut"
     });
 
+  // journey period cards scroll
   gsap.utils.toArray(".journey-period").forEach((period) => {
     gsap.from(period, {
       scrollTrigger: {
@@ -128,6 +131,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // section header scroll 
   gsap.utils.toArray('.section-header').forEach(section => {
     gsap.fromTo(section, 
       {
@@ -147,6 +151,7 @@ window.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  // quote cards scroll
   gsap.utils.toArray('.quote-card').forEach((card, index) => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -173,6 +178,7 @@ window.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  // quotes section title scroll
   gsap.fromTo('.quotes-title', 
     {
       y: -100,
@@ -189,6 +195,43 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
   );
+
+  // TV gallery scroll
+  gsap.from(".tv-gallery-title", {
+    scrollTrigger: {
+      trigger: ".tv-gallery-section",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out"
+  });
+
+  gsap.from(".tv-screen", {
+    scrollTrigger: {
+      trigger: ".tv-gallery-section",
+      start: "top 70%",
+      toggleActions: "play none none none"
+    },
+    scale: 0.7,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out"
+  });
+
+  gsap.from(".painting-info", {
+    scrollTrigger: {
+      trigger: ".tv-gallery-section",
+      start: "top 60%",
+      toggleActions: "play none none none"
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power2.out"
+  });
 
   ScrollTrigger.refresh();
 });
