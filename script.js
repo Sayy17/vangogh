@@ -160,7 +160,7 @@ vanTimeline.to(heroVan, {
 
   // quote cards scroll
   gsap.utils.toArray('.quote-card').forEach((card, index) => {
-    const tl = gsap.timeline({
+    const cardtl = gsap.timeline({
       scrollTrigger: {
         trigger: card,
         start: "top 80%",
@@ -171,7 +171,7 @@ vanTimeline.to(heroVan, {
 
     const direction = index % 2 === 0 ? -100 : 100;
 
-    tl.fromTo(card, 
+    cardtl.fromTo(card, 
       {
         x: `${direction}vw`,
         opacity: 0
