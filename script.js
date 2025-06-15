@@ -10,6 +10,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
   tl
+    .to(".van-pos", {
+      opacity: 1,
+      duration: 1,
+      delay: 0.8,
+    }, 0)
+  
     .to("header", {
       "--border-width": "100%",
       duration: 3,
