@@ -10,12 +10,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
   tl
-    .to(".van-pos", {
-      opacity: 1,
-      duration: 1,
-      delay: 0.8,
-    }, 0)
-  
     .to("header", {
       "--border-width": "100%",
       duration: 3,
@@ -96,32 +90,16 @@ const vanTimeline = gsap.timeline({
 });
 
 // left
-vanTimeline.to(heroVan, {
-  y: 700,
-  x:900, 
-  duration: 1 
-});
+vanTimeline.to(heroVan, { y: 700,x:900, duration: 1 });
 
 // right
-vanTimeline.to(heroVan, {
-  x: -60, 
-  y:1300, 
-  duration: 1 
-});
+vanTimeline.to(heroVan, { x: -60, y:1300, duration: 1 });
 
 // left
-vanTimeline.to(heroVan, {
-  x:1000, 
-  y:1950,
-  duration: 1
-});
+vanTimeline.to(heroVan, { x:1000,y:1950, duration: 1 });
 
 // right
-vanTimeline.to(heroVan, {
-  x: -100,
-  y: 2510,
-  duration: 1 
-});
+vanTimeline.to(heroVan, { x: -100, y: 2510, duration: 1 });
 
   // journey period cards scroll
   gsap.utils.toArray(".journey-period").forEach((period) => {
@@ -239,6 +217,10 @@ vanTimeline.to(heroVan, {
     duration: 1.2,
     ease: "power2.out"
   });
-  
+
+
+  //van pic
+
+
   ScrollTrigger.refresh();
 });
