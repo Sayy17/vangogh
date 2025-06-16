@@ -1,9 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // header underline initial state
-  document.documentElement.style.setProperty('--border-width', '0%');
-
   const header = document.querySelector("header");
 
   // hero on-load animation
