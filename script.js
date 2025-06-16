@@ -234,9 +234,5 @@ vanTimeline.to(heroVan, {
     ease: "power2.out"
   });
 
-
-  //van pic
-
-
   ScrollTrigger.refresh();
 });
