@@ -90,16 +90,32 @@ const vanTimeline = gsap.timeline({
 });
 
 // left
-vanTimeline.to(heroVan, { y: 700,x:900, duration: 1 });
+vanTimeline.to(heroVan, {
+  y: 700,
+  x:900,
+  duration: 1 
+});
 
 // right
-vanTimeline.to(heroVan, { x: -60, y:1300, duration: 1 });
+vanTimeline.to(heroVan, { 
+  x: -60, 
+  y:1300,
+  duration: 1 
+});
 
 // left
-vanTimeline.to(heroVan, { x:1000,y:1950, duration: 1 });
+vanTimeline.to(heroVan, {
+  x:1000,
+  y:1950, 
+  duration: 1
+});
 
 // right
-vanTimeline.to(heroVan, { x: -100, y: 2510, duration: 1 });
+vanTimeline.to(heroVan, { 
+  x: -100,
+  y: 2510, 
+  duration: 1 
+});
 
   // journey period cards scroll
   gsap.utils.toArray(".journey-period").forEach((period) => {
