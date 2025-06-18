@@ -528,19 +528,6 @@ header::after {
   opacity: 1;
 }
 
-.static-overlay {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  width: calc(100% - 80px);
-  height: calc(100% - 80px);
-  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.05) 50%);
-  background-size: 100% 4px;
-  opacity: 0.2;
-  pointer-events: none;
-  border-radius: 20px;
-}
-
 .tv-controls {
   position: absolute;
   right: 30px;
