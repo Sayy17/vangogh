@@ -217,4 +217,5 @@ window.addEventListener("DOMContentLoaded", () => {
     duration: 1.2,
     ease: "power2.out"
   });
+  ScrollTrigger.refresh()
 });
