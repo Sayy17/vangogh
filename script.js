@@ -157,7 +157,7 @@ window.addEventListener("DOMContentLoaded", () => {
           trigger: card,
           start: "top 80%",
           end: "bottom 20%",
-          toggleActions: "play reverse none none"
+          toggleActions: "play none none reverse"
         }
       }
     );
