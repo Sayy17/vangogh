@@ -57,59 +57,52 @@ window.addEventListener("DOMContentLoaded", () => {
       ease: "power3.out",
     }, 1.5)
 
-    .from(".hero-quote", {
+    .from(".hero-content p", {
       opacity: 0,
       y: 30,
       duration: 1,
       ease: "power2.out",
-    }, 1.5)
-
-    .from(".hero-cta", {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      ease: "power2.out",
-    }, 1.7);
+    }, 1.5);
 
   // journey scroll (needs adjustments)
-const heroVan = document.querySelector(".hero-vann-wrapper");
+  const heroVan = document.querySelector(".hero-vann-wrapper");
 
-const vanTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".journey-section",
-    start: "top center",
-    end: "bottom center",
-    scrub: 1
-  }
-});
+  const vanTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".journey-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: 1
+    }
+  });
 
-// left
-vanTimeline.to(heroVan, { 
-  y: 700,
-  x:900, 
-  duration: 1
-});
+  // left
+  vanTimeline.to(heroVan, { 
+    y: 700,
+    x: 900, 
+    duration: 1
+  });
 
-// right
-vanTimeline.to(heroVan, {
-  x: -60, 
-  y:1300,
-  duration: 1
-});
+  // right
+  vanTimeline.to(heroVan, {
+    x: -60, 
+    y: 1300,
+    duration: 1
+  });
 
-// left
-vanTimeline.to(heroVan, { 
-  x:1000,
-  y:1950, 
-  duration: 1 
-});
+  // left
+  vanTimeline.to(heroVan, { 
+    x: 1000,
+    y: 1950, 
+    duration: 1 
+  });
 
-// right
-vanTimeline.to(heroVan, {
-  x: -100,
-  y: 2510, 
-  duration: 1
-});
+  // right
+  vanTimeline.to(heroVan, {
+    x: -100,
+    y: 2510, 
+    duration: 1
+  });
 
   // journey period cards scroll
   gsap.utils.toArray(".journey-period").forEach((period) => {
@@ -146,13 +139,14 @@ vanTimeline.to(heroVan, {
     );
   });
 
-  // quote cards scroll
-    gsap.utils.toArray('.quote-card').forEach((card, index) => {
+  // quote cards scroll 
+  gsap.utils.toArray('.quote-card').forEach((card, index) => {
     const direction = index % 2 === 0 ? -100 : 100;
     
     gsap.fromTo(card, 
-      { x: `${direction}vw`, 
-       opacity: 0
+      { 
+        x: `${direction}vw`, 
+        opacity: 0
       },
       {
         x: 0,
@@ -163,7 +157,7 @@ vanTimeline.to(heroVan, {
           trigger: card,
           start: "top 80%",
           end: "bottom 20%",
-          toggleActions: "play none none reverse"
+          toggleActions: "play reverse none play"
         }
       }
     );
