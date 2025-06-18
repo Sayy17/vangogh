@@ -1,120 +1,97 @@
 window.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const header = document.querySelector("header");
-
-  // hero on-load animation
+  // hero on-load animation 
   const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+  const header = document.querySelector("header"); 
 
-  tl
-    .to("header", {
-      "--border-width": "100%",
-      duration: 3,
-    }, 0)
+  tl.to("header", {
+    "--border-width": "100%",
+    duration: 3,
+  }, 0)
+  .from(".nav a", {
+    y: -50,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power3.out",
+  }, 0.2)
+  .fromTo(".social-link", 
+    { y: -50, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
+    0.5)
+  .fromTo(".hero-content h1", 
+    { opacity: 0 },
+    { opacity: 1, duration: 1 },
+    0)
+  .to(".hero-content .line", {
+    color: "#D4AF37",
+    "-webkit-text-stroke": "0px #D4AF37",
+  })
+  .from(".hero-content .line", {
+    x: 100,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power3.out",
+  }, 1)
+  .to(".hero-vann-wrapper", {
+    opacity: 1,
+    scale: 0.8,
+    duration: 1.3,
+    ease: "power3.out",
+  }, 1.5)
+  .from(".hero-quote", {
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    ease: "power2.out",
+  }, 1.5)
+  .from(".hero-cta", {
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    ease: "power2.out",
+  }, 1.7);
 
-    .from(".nav a", {
-      y: -50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: "power3.out",
-    }, 0.2)
+  // journey scroll
+  const heroVan = document.querySelector(".hero-vann-wrapper"); // Used in scroll animation
+  
+  const vanTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".journey-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: 1
+    }
+  });
 
-    .fromTo(".social-link", 
-      {
-        y: -50,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-      }, 0.5)
+  vanTimeline
+    .to(heroVan, { 
+      y: 700, 
+      x: 900, 
+      duration: 1
+    })  // left
+    
+    .to(heroVan, {
+      x: -60, 
+      y: 1300,
+      duration: 1 
+    })  // right
+    
+    .to(heroVan, { 
+      x: 1000, 
+      y: 1950, 
+      duration: 1 
+    }) // left
+    
+    .to(heroVan, { 
+      x: -100, 
+      y: 2510, 
+      duration: 1 
+    }); // right
 
-    .to(".hero-content h1", {
-      opacity: 1,
-      duration: 1,
-    }, 0)
-
-    .to(".hero-content .line", {
-      color: "#D4AF37",
-      "-webkit-text-stroke": "0px #D4AF37",
-    })
-
-    .from(".hero-content .line", {
-      x: 100,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power3.out",
-    }, 1)
-
-    .to(".hero-vann-wrapper", {
-      opacity: 1,
-      scale: 0.8,
-      duration: 1.3,
-      ease: "power3.out",
-    }, 1.5)
-
-    .from(".hero-quote", {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      ease: "power2.out",
-    }, 1.5)
-
-    .from(".hero-cta", {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      ease: "power2.out",
-    }, 1.7);
-
-  const headerOffset = header.offsetHeight - 1;
-
-  // journey scroll (needs adjustments)
-const heroVan = document.querySelector(".hero-vann-wrapper");
-
-const vanTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".journey-section",
-    start: "top center",
-    end: "bottom center",
-    scrub: 1
-  }
-});
-
-// left
-vanTimeline.to(heroVan, {
-  y: 700,
-  x:900,
-  duration: 1 
-});
-
-// right
-vanTimeline.to(heroVan, { 
-  x: -60, 
-  y:1300,
-  duration: 1 
-});
-
-// left
-vanTimeline.to(heroVan, {
-  x:1000,
-  y:1950, 
-  duration: 1
-});
-
-// right
-vanTimeline.to(heroVan, { 
-  x: -100,
-  y: 2510, 
-  duration: 1 
-});
-
-  // journey period cards scroll
+  /// journey cards scroll
   gsap.utils.toArray(".journey-period").forEach((period) => {
     gsap.from(period, {
       scrollTrigger: {
@@ -129,13 +106,10 @@ vanTimeline.to(heroVan, {
     });
   });
 
-  // section header scroll 
+  /// header section scroll 
   gsap.utils.toArray('.section-header').forEach(section => {
     gsap.fromTo(section, 
-      {
-        y: 50,
-        opacity: 0
-      },
+      { y: 50, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -151,37 +125,28 @@ vanTimeline.to(heroVan, {
 
   // quote cards scroll
   gsap.utils.toArray('.quote-card').forEach((card, index) => {
-    const cardtl = gsap.timeline({
-      scrollTrigger: {
-        trigger: card,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      }
-    });
-
     const direction = index % 2 === 0 ? -100 : 100;
-
-    cardtl.fromTo(card, 
-      {
-        x: `${direction}vw`,
-        opacity: 0
-      },
+    
+    gsap.fromTo(card, 
+      { x: `${direction}vw`, opacity: 0 },
       {
         x: 0,
         opacity: 1,
         duration: 2,
-        ease: "power2.out"
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
       }
     );
   });
 
-  // quotes section title scroll
+  /// quotes section title scroll
   gsap.fromTo('.quotes-title', 
-    {
-      y: -100,
-      opacity: 0
-    },
+    { y: -100, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -194,7 +159,7 @@ vanTimeline.to(heroVan, {
     }
   );
 
-  // TV gallery scroll
+  // TV gallery scroll 
   gsap.from(".tv-gallery-title", {
     scrollTrigger: {
       trigger: ".tv-gallery-section",
@@ -230,6 +195,4 @@ vanTimeline.to(heroVan, {
     duration: 1.2,
     ease: "power2.out"
   });
-
-  ScrollTrigger.refresh();
 });
