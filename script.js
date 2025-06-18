@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
     "--border-width": "100%",
     duration: 3,
   }, 0)
+    
   .from(".nav a", {
     y: -50,
     opacity: 0,
@@ -16,18 +17,22 @@ window.addEventListener("DOMContentLoaded", () => {
     stagger: 0.1,
     ease: "power3.out",
   }, 0.2)
+    
   .fromTo(".social-link", 
     { y: -50, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
     0.5)
+    
   .fromTo(".hero-content h1", 
     { opacity: 0 },
     { opacity: 1, duration: 1 },
     0)
+    
   .to(".hero-content .line", {
     color: "#D4AF37",
     "-webkit-text-stroke": "0px #D4AF37",
   })
+    
   .from(".hero-content .line", {
     x: 100,
     opacity: 0,
@@ -35,18 +40,21 @@ window.addEventListener("DOMContentLoaded", () => {
     stagger: 0.2,
     ease: "power3.out",
   }, 1)
+    
   .to(".hero-vann-wrapper", {
     opacity: 1,
     scale: 0.8,
     duration: 1.3,
     ease: "power3.out",
   }, 1.5)
+    
   .from(".hero-quote", {
     opacity: 0,
     y: 30,
     duration: 1,
     ease: "power2.out",
   }, 1.5)
+    
   .from(".hero-cta", {
     opacity: 0,
     y: 30,
@@ -109,7 +117,9 @@ window.addEventListener("DOMContentLoaded", () => {
   /// header section scroll 
   gsap.utils.toArray('.section-header').forEach(section => {
     gsap.fromTo(section, 
-      { y: 50, opacity: 0 },
+      { y: 50,
+       opacity: 0 
+      },
       {
         y: 0,
         opacity: 1,
