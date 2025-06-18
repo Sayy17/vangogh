@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }, 1.7);
 
   // journey scroll
-  const heroVan = document.querySelector(".hero-vann-wrapper"); // Used in scroll animation
+  const heroVan = document.querySelector(".hero-vann-wrapper");
   
   const vanTimeline = gsap.timeline({
     scrollTrigger: {
