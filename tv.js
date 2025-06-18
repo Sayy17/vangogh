@@ -59,17 +59,13 @@ class VintageTV {
       }
     });
 
-    // TV static effect
-    tl.to('.static-overlay', {
-      opacity: 1,
-      duration: 0.1
-    })
-    .to(currentPainting, {
+    // Painting transition animation
+    tl.to(currentPainting, {
       opacity: 0,
       scale: 0.9,
       duration: 0.3,
       ease: "power2.in"
-    }, 0.1)
+    })
     .set(currentPainting, { className: 'painting-display' })
     .set(newPainting, { 
       className: 'painting-display active',
@@ -81,12 +77,9 @@ class VintageTV {
       scale: 1,
       duration: 0.4,
       ease: "power2.out"
-    })
-    .to('.static-overlay', {
-      opacity: 0,
-      duration: 0.2
-    }, '-=0.2');
+    });
 
+    // Painting info update animation
     tl.to('#paintingInfo', {
       opacity: 0,
       y: 20,
@@ -115,7 +108,8 @@ class VintageTV {
     document.getElementById('paintingYear').textContent = year;
     document.getElementById('paintingDescription').textContent = description;
   }
-
+// static-overlay removed bcz it wasn't working.
+  
   startAutoChange() {
     this.autoChangeInterval = setInterval(() => {
       this.nextPainting();
