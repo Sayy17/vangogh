@@ -30,7 +30,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 0.5)
     
   .fromTo(".hero-content h1", 
-    { opacity: 0 },
     { opacity: 1, 
      duration: 1,
     }, 0)
