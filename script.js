@@ -19,14 +19,21 @@ window.addEventListener("DOMContentLoaded", () => {
   }, 0.2)
     
   .fromTo(".social-link", 
-    { y: -50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
-    0.5)
+    { y: -50, 
+     opacity: 0
+    },
+    { y: 0, 
+     opacity: 1, 
+     duration: 0.8, 
+     stagger: 0.2, 
+     ease: "power3.out",
+    }, 0.5)
     
   .fromTo(".hero-content h1", 
     { opacity: 0 },
-    { opacity: 1, duration: 1 },
-    0)
+    { opacity: 1, 
+     duration: 1,
+    }, 0)
     
   .to(".hero-content .line", {
     color: "#D4AF37",
