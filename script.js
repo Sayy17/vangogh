@@ -144,7 +144,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const direction = index % 2 === 0 ? -100 : 100;
     
     gsap.fromTo(card, 
-      { x: `${direction}vw`, opacity: 0 },
+      { x: `${direction}vw`, 
+       opacity: 0
+      },
       {
         x: 0,
         opacity: 1,
@@ -162,7 +164,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /// quotes section title scroll
   gsap.fromTo('.quotes-title', 
-    { y: -100, opacity: 0 },
+    { y: -100,
+     opacity: 0
+    },
     {
       y: 0,
       opacity: 1,
